@@ -3,15 +3,29 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import InputDisplay from './components/InputDisplay'
+import EducationDisplay from './components/EducationDisplay'
 
 const list = [{
-  name: 'Pony', 
+  id: 'first-name',
+  name: 'First Name', 
   type: 'text'
   },
   {
-    name:'Tony',
-    type: 'number'
+  id: 'surname',
+  name: 'Surname', 
+  type: 'text'
+  },
+  {
+  id: 'phone',
+  name: 'Phone', 
+  type: 'number'
+  },
+  {
+  id: 'email',
+  name: 'Email Address', 
+  type: 'email'
   }
+
 ]
 
 function App() {
@@ -20,10 +34,10 @@ function App() {
   return (
     <>
     <Header />
-    <div>{list.map(item =>[
-       <InputDisplay key={item.name} value={item.name} type={item.type}/>
+    <div id='user-info-container' className='form-section'>{list.map(item =>[
+       <InputDisplay key={item.id} id={item.id} value={item.name} type={item.type} class={'user-details'}/>
     ])}</div>
-    <InputDisplay value={'Input Data'}/>
+    <EducationDisplay />
     <Footer />
     </>
   )
