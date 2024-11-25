@@ -3,7 +3,8 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import InputDisplay from './components/InputDisplay'
-import EducationDisplay from './components/EducationDisplay'
+import EducationDisplay from './components/ExperienceDisplay'
+import Button from './components/Button'
 
 const userInfo = [{
   id: 'first-name',
@@ -29,27 +30,66 @@ const userInfo = [{
 ]
 
 const userEducation = [{
-  id: 'school-name',
-  name: 'School Name',
-  type: 'text'
+  id: 'education-name',
+  name: 'Name of the School/College/Uni',
+  type: 'text',
+  format: 'input'
+  },
+  {
+  id: 'education-course',
+  name: 'Course Taken...',
+  type: 'text',
+  format: 'textarea'
   },
   {
   id: 'school-start-date',
   name: 'Start Date', 
-  type: 'date'
+  type: 'date',
+  format: 'input'
   },
   {
   id: 'school-finished-date',
   name: 'End Date', 
-  type: 'date'
+  type: 'date',
+  format: 'input'
   },
   {
   id: 'grades',
   name: 'Grades', 
-  type: 'text-area'
-  }
+  type: 'text-area',
+  format: 'textarea',
+  }]
 
-]
+  const userExperience = [{
+    id: 'experience-name',
+    name: 'Name of Employer/Relevant Experience',
+    type: 'text',
+    format: 'input'
+    },
+    {
+    id: 'experience-role',
+    name: 'Role of Experiance',
+    type: 'text-box',
+    format: 'input'
+    },
+    {
+    id: 'experience-start-date',
+    name: 'Start Date', 
+    type: 'date',
+    format: 'input'
+    },
+    {
+    id: 'experience-end-date',
+    name: 'End Date', 
+    type: 'date',
+    format: 'input'
+    },
+    {
+    id: 'responsibilities',
+    name: 'Role Responsibilities/Experience', 
+    type: 'text',
+    format: 'text-area'
+    }]
 
 function App() {
   const [count, setCount] = useState(0)
@@ -62,8 +102,9 @@ function App() {
     ])}</div>
     <div id='user-school-container' className='form-section'>{userEducation.map(item =>[
        <InputDisplay key={item.id} id={item.id} value={item.name} type={item.type} class={'user-details'}/>
-    ])}</div>
-    <EducationDisplay />
+    ])}
+    </div>
+    <Button value={'Add Another Education Section'}/>
     <Footer />
     </>
   )
