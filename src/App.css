@@ -3,10 +3,10 @@
     flex-direction: column;
 }
 
-#first-name-input, 
-#surname-input,
-#phone-input,
-#email-input{
+#first-name-container, 
+#surname-container,
+#phone-container,
+#email-container{
     display:none;
 }
 
