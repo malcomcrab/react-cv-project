@@ -5,10 +5,10 @@ import Input from './Input';
 function InputDisplay(props){
 
     return(
-        <div>
+        <div className={props.class}>
+            <p>{props.value} <Button value={<img src={inputIcon}></img>} /></p>
             <Input type={props.type} value={props.value}/>
             <Button value={'Submit'}/>
-            <p>{props.value} <Button value={<img src={inputIcon}></img>} /></p>
         </div>
     )
 }

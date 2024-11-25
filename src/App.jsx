@@ -5,13 +5,26 @@ import Footer from './components/Footer'
 import InputDisplay from './components/InputDisplay'
 
 const list = [{
-  name: 'Pony', 
+  id: 'firstName',
+  name: 'First Name', 
   type: 'text'
   },
   {
-    name:'Tony',
-    type: 'number'
+  id: 'surname',
+  name: 'Surname', 
+  type: 'text'
+  },
+  {
+  id: 'PhoneNumber',
+  name: 'Phone', 
+  type: 'number'
+  },
+  {
+  id: 'Email',
+  name: 'Email Address', 
+  type: 'email'
   }
+
 ]
 
 function App() {
@@ -21,9 +34,9 @@ function App() {
     <>
     <Header />
     <div>{list.map(item =>[
-       <InputDisplay key={item.name} value={item.name} type={item.type}/>
+       <InputDisplay key={item.id} value={item.name} type={item.type} class={'user-details'}/>
     ])}</div>
-    <InputDisplay value={'Input Data'}/>
+    
     <Footer />
     </>
   )
