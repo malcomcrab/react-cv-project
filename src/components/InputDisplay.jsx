@@ -1,26 +1,25 @@
 import Button from './Button';
 import inputIcon from '../assets/editIcon.svg'
-import Input from './Input';
+import { useState } from 'react';
 
 
 
-const handleButtonClick = (target) => {
+const handleEditClick = (target) => {
     const toggleElement = document.getElementById(target)
     toggleElement.style.display === 'flex'? toggleElement.style.display = 'none' : toggleElement.style.display = 'flex'
-    
   };
 
 
 function InputDisplay(props){
-
-    const idss = (props.id + '-input')
-
+    const [inputValue, setInputValue] = useState(props.value)
+    const inputContainerId = (props.id + '-container')
+    const inputElementId = (props.id + '-input')
     return(
         <div className={props.class}>
-            <p>{props.value} <Button handleClick={() => handleButtonClick(idss)} value={<img src={inputIcon} ></img>} /></p>
-            <div id={idss}>
-                <Input type={props.type} value={props.value}/>
-                <Button  value={'Submit'}/>
+            <p>{inputValue} <Button handleClick={() => handleEditClick(inputContainerId)} value={<img src={inputIcon} ></img>} /></p>
+            <div id={inputContainerId}>
+                <input id={inputElementId} type={props.type} value={inputValue} onChange={(event)=>setInputValue(event.target.value)}/>
+                <Button handleClick={() => handleEditClick(inputContainerId)} value={'Submit'}/>
             </div>
         </div>
     )
