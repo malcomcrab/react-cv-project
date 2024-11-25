@@ -2,3 +2,16 @@
     display: flex;
     flex-direction: column;
 }
+
+#first-name-input, 
+#surname-input,
+#phone-input,
+#email-input{
+    display:none;
+}
+
+.form-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border:solid;
+}

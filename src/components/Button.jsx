@@ -2,7 +2,7 @@
 function Button(props){
 
 return (
-    <button>{props.value}</button>
+    <button onClick={props.handleClick} >{props.value}</button>
 )
 
 }
