@@ -22,12 +22,10 @@ function EducationForm(){
                 </fieldset>
                 <fieldset>
                     <label htmlFor={"education-grade-input"}>Grades Achieved: </label>
-                    <br/>
                     <textarea cols={'20'} rows={'5'} id={'education-grade-input'} name={'education-grade-input'} text={'Grade Received'}></textarea>
                 </fieldset>
                 <fieldset>
                 <label htmlFor={"education-notes-input"}>Notes: </label>
-                    <br/>
                     <textarea cols={'20'} rows={'2'} id={'education-notes-input'} name={'education-notes-input'} text={'Grade Received'}></textarea>
                 </fieldset>
                 <fieldset>

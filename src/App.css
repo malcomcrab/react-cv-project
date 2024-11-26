@@ -23,8 +23,18 @@ hr{
 
 fieldset{
     display: grid;
-    grid-template-columns: 1fr ;
-    border:solid;
+    grid-template-columns: 1fr 1fr;     
+    grid-template-rows: 1fr 1fr;
+    padding:1em;
+}
+
+label{
+    grid-column: 1;
+}
+
+input{
+    width:fit-content;
+    grid-column: 2;
 }
 
 #cv-display-container{

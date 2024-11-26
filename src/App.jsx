@@ -32,8 +32,8 @@ function App() {
             handleChangeSurname={handleChangeSurname} />
           
           <h2>Education Form</h2>
-          <Button value={'+'}/>
-          <EducationForm />
+            <Button value={'+'}/>
+            <EducationForm />
         </div>
 
 
