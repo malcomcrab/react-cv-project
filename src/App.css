@@ -17,10 +17,28 @@ h2{
     padding:1em;
 }
 
+hr{
+    grid-column: 1/2;
+}
+
 fieldset{
     display: grid;
     grid-template-columns: 1fr ;
     border:solid;
+}
+
+#cv-display-container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding:1em;
+}
+
+#cv-names-container{
+    grid-column: 2;
+    display: flex;
+    border:solid;
+    padding:1em;
+    font-size: xx-large;
 }
 
 #main-content{
