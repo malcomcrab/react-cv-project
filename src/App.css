@@ -1,17 +1,41 @@
-.user-details{
-    display: flex;
-    flex-direction: column;
+body{
+    margin: 0px 2em 0px 2em;
 }
 
-#first-name-container, 
-#surname-container,
-#phone-container,
-#email-container{
-    display:none;
+p{
+    margin:5px;
 }
 
-.form-section{
+h1{
+    margin:5px;
+    padding:10px;
+}
+
+
+h2{
+    margin:0px;
+    padding:1em;
+}
+
+fieldset{
+    display: grid;
+    grid-template-columns: 1fr ;
+    border:solid;
+}
+
+#main-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+#left-column{
+    display:flex;
+    flex-direction: column;
+    margin:1em;
+}
+
+#right-column{
+    display: block;
+    margin: 2em;
     border:solid;
 }

@@ -1,9 +1,7 @@
 
-function Input(props) {
-
+function Input({ handleChange, text, id, name, }) {
     return (
-        <input type={props.type} placeholder={props.value}></input>
+        <input id={id} name={name} onChange={handleChange} placeholder={text} defaultValue={text}></input>
     )
 }
-
 export default Input;

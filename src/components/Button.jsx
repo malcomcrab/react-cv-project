@@ -1,8 +1,8 @@
 
-function Button(props){
+function Button({handleClicks, value, type}){
 
 return (
-    <button onClick={props.handleClick} >{props.value}</button>
+    <button type={type} onClick={handleClicks} >{value}</button>
 )
 
 }
