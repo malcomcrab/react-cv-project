@@ -1,3 +1,4 @@
+import Button from "./Button";
 
 
 function DisplayForm({data}){
@@ -5,14 +6,20 @@ function DisplayForm({data}){
   
  
         return(
-            <ul>
-                <p>{data.schoolName}</p>
-                <p>{data.educationType}</p>
-                <p>{data.educationStart}</p>
-                <p>{data.educationEnd}</p>
-                <p>{data.grade}</p>
-                <p>{data.educationNotes}</p>
-            </ul>
+            
+            <div>
+                
+                <ul className="educationList">
+                    <p>{data.schoolName}</p>
+                    <p>{data.educationType}</p>
+                    <p>{data.educationStart}</p>
+                    <p>{data.educationEnd}</p>
+                    <p>{data.grade}</p>
+                    <p>{data.educationNotes}</p>
+                </ul>
+                <Button value={'edit'}/>
+            </div>
+           
             
         )
     

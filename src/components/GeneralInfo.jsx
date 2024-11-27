@@ -4,7 +4,7 @@ import Input from "./Input"
 {/*Renders the general info form, state is lifted to parent component so that,
    onChange, the names automatically update on the display component.*/}
 
-function GeneralInfo({name, handleChangeName, surname, handleChangeSurname}){
+function GeneralInfo({name, handleChangeName, surname, handleChangeSurname, jobRole, handleChangeJobRole}){
 
     return(
         
@@ -17,6 +17,10 @@ function GeneralInfo({name, handleChangeName, surname, handleChangeSurname}){
                     <br/>
                     <label  htmlFor="surname-input"> Surname: </label>
                     <Input  id={"surname-input"} name={"surname-input"} text={surname} handleChange={handleChangeSurname}/>
+                   <br/>
+                   <label  htmlFor="jobRole">Job Title: </label>
+                   <Input  id={"job-role-input"} name={"jobRole"} text={jobRole} handleChange={handleChangeJobRole}/>
+                    
                 </fieldset>
             </form>
         </div>

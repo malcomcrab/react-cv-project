@@ -12,18 +12,20 @@ function App() {
 
   const [firstName, setFirstName] = useState('John')
   const [surname, setSurname] = useState('Bon')
+  const [jobRole, setJobRole] = useState('Developer')
   const [educationData, setEducationData] = useState([])
 
   
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => { setFirstName(event.target.value) }
   const handleChangeSurname = (event) => { setSurname(event.target.value) }
- 
+  const handleChangeJobRole = (event) => { setJobRole(event.target.value) }
 
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.target)
+    event.target.reset()
     let formObject = Object.fromEntries(data.entries())
     setEducationData([...educationData, formObject])
    //console.log(formObject)
@@ -46,7 +48,10 @@ function App() {
             name={firstName}
             handleChangeName={handleChangeName}
             surname={surname}
-            handleChangeSurname={handleChangeSurname} />
+            handleChangeSurname={handleChangeSurname} 
+            jobRole={jobRole}
+            handleChangeJobRole={handleChangeJobRole}
+            />
 
           <h2>Education Form</h2>
           {/*button to open Education form*/}
@@ -61,12 +66,14 @@ function App() {
           <CvDisplay
             firstName={firstName}
             surname={surname}
+            jobRole={jobRole}
             educationData={educationData}
           />
 
           <GeneralDisplay
             firstName={firstName}
             surname={surname}
+            jobRole={jobRole}
           />
         </div>
       </main>
