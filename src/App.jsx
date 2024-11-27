@@ -15,6 +15,17 @@ function App() {
   const [jobRole, setJobRole] = useState('Developer')
   const [educationData, setEducationData] = useState([])
 
+  const handleToggle = (event) => {
+    let toggle = document.getElementById(event.target.value)
+    if(toggle.style.display === 'grid'){
+         toggle.style.display = 'none'
+    } else {
+       toggle.style.display = 'grid'
+    }
+   
+
+  }
+  
   
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => { setFirstName(event.target.value) }
@@ -39,10 +50,12 @@ function App() {
       <main id={'main-content'} className={'container'}>
 
         <div id={'left-column'}>
-
-          <h2>Personal Details</h2>
-          {/*button to open general info form */}
-          <Button value={'+'} />
+          <div className="form-title-container">
+            <h2>Personal Details</h2>
+            {/*button to open general info form */}
+            <Button text={'+'} value={'general-info-form'} handleClick={handleToggle}/>
+          </div>
+          
 
           <GeneralInfo
             name={firstName}
@@ -52,10 +65,12 @@ function App() {
             jobRole={jobRole}
             handleChangeJobRole={handleChangeJobRole}
             />
-
-          <h2>Education Form</h2>
-          {/*button to open Education form*/}
-          <Button value={'+'} />
+          <div className="form-title-container">
+            <h2>Education Form</h2>
+            {/*button to open Education form*/}
+          <Button text={'+'} value={'education-form'} handleClick={handleToggle}/>
+          </div>
+          
           <EducationForm formSubmit={formSubmit} />
 
         </div>

@@ -2,6 +2,10 @@ body{
     margin: 0px 2em 0px 2em;
 }
 
+main{
+    height: 80svh;
+}
+
 p{
     margin:5px;
 }
@@ -21,6 +25,10 @@ hr{
     grid-column: 1/2;
 }
 
+button{
+    height:fit-content;
+}
+
 fieldset{
     display: grid;
     grid-template-columns: 1fr 1fr;     
@@ -35,6 +43,22 @@ label{
 input{
     width:fit-content;
     grid-column: 2;
+}
+
+.form-title-container{
+    display: flex;
+    align-items: center;
+}
+
+#cv-photo-container{
+    grid-column: 1;
+    grid-row: 1;
+    border:solid;
+    background-color: grey;
+}
+
+#general-info-form, #education-form{
+    display: none;
 }
 
 #cv-display-container{

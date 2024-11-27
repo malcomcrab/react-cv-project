@@ -16,8 +16,13 @@ function CvDisplay({firstName, surname, educationData, jobRole}){
                 <div id="info-container">
                     <p id="job-display" className="info-display">{jobRole}</p>
                 </div>
-
             </div>
+            
+            <div id="cv-photo-container" className="photo-container">
+                <img src="" alt="Headshot of Job Applicant"/>
+            </div>
+            
+            
             <div>
                 <hr/>
             </div>
