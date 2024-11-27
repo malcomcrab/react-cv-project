@@ -11,7 +11,7 @@ function EducationForm({formSubmit}){
     return(
 
         <>
-            <form id={'education-form'} className={'new-education-form'} onSubmit={formSubmit}>
+            <form id={'education-form'} className={'hidden-form'} onSubmit={formSubmit}>
                 
                 <fieldset>
                     <label htmlFor={"schoolName"}>Place of Education: </label>

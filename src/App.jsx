@@ -17,10 +17,10 @@ function App() {
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value)
-    if(toggle.style.display === 'grid'){
-         toggle.style.display = 'none'
+    if(toggle.className === 'hidden-form'){
+      toggle.className = 'unhidden-form'
     } else {
-       toggle.style.display = 'grid'
+      toggle.className = 'hidden-form'
     }
    
 

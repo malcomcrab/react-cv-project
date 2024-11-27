@@ -9,7 +9,7 @@ function GeneralInfo({name, handleChangeName, surname, handleChangeSurname, jobR
     return(
         
         <div>
-            <form id='general-info-form' className="entry-form">
+            <form id='general-info-form' className={'hidden-form'}>
                 
                 <fieldset id={'general-info-set'}>
                     <label  htmlFor="first-name-input">First Name: </label>
