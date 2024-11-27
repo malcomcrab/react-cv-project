@@ -17,6 +17,9 @@ function CvDisplay({firstName, surname, educationData}){
             </div>
             <div className="education-container">
 
+            {/* educationData (array of objects) is mapped and each object is passed through the DisplayForm component 
+            and rendered.
+            */}
             <div>
                 {educationData.map((item) => {
                    return <DisplayForm key={item} data={item} />

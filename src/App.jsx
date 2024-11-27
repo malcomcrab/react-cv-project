@@ -13,10 +13,14 @@ function App() {
   const [firstName, setFirstName] = useState('John')
   const [surname, setSurname] = useState('Bon')
   const [educationData, setEducationData] = useState([])
- 
+
+  
+  //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => { setFirstName(event.target.value) }
   const handleChangeSurname = (event) => { setSurname(event.target.value) }
  
+
+  //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.target)
@@ -29,21 +33,26 @@ function App() {
     <>
       <Header />
 
+
       <main id={'main-content'} className={'container'}>
+
         <div id={'left-column'}>
 
           <h2>Personal Details</h2>
-          <Button value={'+'}/>
+          {/*button to open general info form */}
+          <Button value={'+'} />
 
           <GeneralInfo
             name={firstName}
             handleChangeName={handleChangeName}
             surname={surname}
             handleChangeSurname={handleChangeSurname} />
-          
+
           <h2>Education Form</h2>
-            <Button value={'+'}/>
-            <EducationForm formSubmit={formSubmit}/>
+          {/*button to open Education form*/}
+          <Button value={'+'} />
+          <EducationForm formSubmit={formSubmit} />
+
         </div>
 
 
@@ -61,24 +70,7 @@ function App() {
           />
         </div>
       </main>
-      
-
-      {/* 
-    <div id='user-info-container' className='form-section'>{userInfo.map(item =>[
-       <InputDisplay key={item.id} id={item.id} value={item.name} type={item.type} class={'user-details'}/>
-    ])}</div>
-    <h2>Education.</h2>
-    <div id='user-school-container' className='form-section'>
-        {userEducation.map(item =>[<InputDisplay key={item.id} id={item.id} value={item.name} type={item.type} class={'user-details'}/>
-    ])}
-    </div>
-    <Button value={'Add Another Education Section'}/>
-    <h2>Experience.</h2>
-    <div className='form-section'>
-      
-    </div>*/}
-
-
+   
       <Footer />
     </>
   )

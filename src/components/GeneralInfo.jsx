@@ -1,6 +1,9 @@
 import Button from "./Button"
 import Input from "./Input"
 
+{/*Renders the general info form, state is lifted to parent component so that,
+   onChange, the names automatically update on the display component.*/}
+
 function GeneralInfo({name, handleChangeName, surname, handleChangeSurname}){
 
     return(

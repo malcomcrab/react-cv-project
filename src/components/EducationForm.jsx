@@ -1,6 +1,10 @@
 import Button from "./Button"
 import Input from "./Input"
 
+{/* Renders the education form.
+    When the form is submitted its data is stored in state as an object through the formSubmit function
+    in its parent component (App.jsx)
+    */}
 
 function EducationForm({formSubmit}){
 
@@ -34,11 +38,6 @@ function EducationForm({formSubmit}){
                 </fieldset>
             </form>
         </>
-
     )
-
-
-
 }
-
 export default EducationForm
