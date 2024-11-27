@@ -12,9 +12,19 @@ function App() {
 
   const [firstName, setFirstName] = useState('John')
   const [surname, setSurname] = useState('Bon')
+  const [educationData, setEducationData] = useState([])
+ 
   const handleChangeName = (event) => { setFirstName(event.target.value) }
   const handleChangeSurname = (event) => { setSurname(event.target.value) }
-
+ 
+  const formSubmit = (event) => {
+    event.preventDefault()
+    const data = new FormData(event.target)
+    let formObject = Object.fromEntries(data.entries())
+    setEducationData([...educationData, formObject])
+   //console.log(formObject)
+    //console.log(educationData[0])
+}
   return (
     <>
       <Header />
@@ -33,7 +43,7 @@ function App() {
           
           <h2>Education Form</h2>
             <Button value={'+'}/>
-            <EducationForm />
+            <EducationForm formSubmit={formSubmit}/>
         </div>
 
 
@@ -42,6 +52,7 @@ function App() {
           <CvDisplay
             firstName={firstName}
             surname={surname}
+            educationData={educationData}
           />
 
           <GeneralDisplay
