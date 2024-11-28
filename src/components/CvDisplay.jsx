@@ -27,7 +27,7 @@ function CvDisplay({firstName, surname, educationData, jobRole, handleDeleteData
                 <hr/>
             </div>
             <div className="education-container">
-
+                <h3>Education:</h3>
             {/* educationData (array of objects) is mapped and each object is passed through the DisplayForm component 
             and rendered.
             */}
@@ -36,8 +36,10 @@ function CvDisplay({firstName, surname, educationData, jobRole, handleDeleteData
                    return <DisplayForm key={item} data={item} handleDeleteData={handleDeleteData} />
                 })}
 
-
+                <hr></hr>
             </div>
+
+            
         </div>
     )
 

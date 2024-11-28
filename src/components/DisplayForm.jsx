@@ -10,14 +10,13 @@ function DisplayForm({data, handleDeleteData}){
             <div>
                 
                 <ul className="educationList">
-                    <p>{data.schoolName}</p>
+                    <h2>{data.schoolName}</h2>
                     <p>{data.educationType}</p>
                     <p>{data.educationStart}</p>
                     <p>{data.educationEnd}</p>
                     <p>{data.grade}</p>
                     <p>{data.educationNotes}</p>
                 </ul>
-                <Button text={'Delete'}  value={data.id} handleClick={handleDeleteData}/>
             </div>
            
             

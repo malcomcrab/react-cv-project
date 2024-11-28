@@ -81,6 +81,9 @@ form{
     animation: opacity 1s both;
 }
 
+.educationList{
+    animation: opacity 1s both;
+}
 
   
   @keyframes opacity {

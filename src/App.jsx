@@ -7,6 +7,8 @@ import GeneralInfo from './components/GeneralInfo'
 import CvDisplay from './components/CvDisplay'
 import EducationForm from './components/EducationForm'
 import Button from './components/Button'
+import EducationList from './components/EducationList'
+import EducationEditor from './components/EducationEditor'
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
   const [surname, setSurname] = useState('Bon')
   const [jobRole, setJobRole] = useState('Developer')
   const [educationData, setEducationData] = useState([])
+  const [editData, setEditData] = useState([])
+
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value)
@@ -30,7 +34,9 @@ function App() {
   const handleChangeSurname = (event) => { setSurname(event.target.value) }
   const handleChangeJobRole = (event) => { setJobRole(event.target.value) }
   const handleDeleteData = (event) => { setEducationData(previousEducationData => previousEducationData.filter((data) => data.id != event.target.value))}
-   
+  const handleEditData = () => {setEditData(educationData)} 
+
+
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
     event.preventDefault()
@@ -52,16 +58,19 @@ function App() {
 
           <div className="form-titles-container">
 
-            <h2>Personal Details</h2>
-            {/*button to open general info form */}
-            <Button text={'+'} value={'general-info-form'} handleClick={handleToggle}/>
-            
-            <h2>Education Form</h2>
-            {/*button to open Education form*/}
+          <h2>Personal Details</h2>
+          {/*button to open general info form */}
+          <Button text={'+'} value={'general-info-form'} handleClick={handleToggle}/>
+          
+          <EducationList educationData={educationData} handleEditData={handleEditData} handleDeleteData={handleDeleteData}/>
+          <h2>Add Education</h2>
+          {/*button to open Education form*/}
           <Button text={'+'} value={'education-form'} handleClick={handleToggle}/>
           
+
+
           <h2>Add Skills</h2>
-            {/*button to open Education form*/}
+          {/*button to open Education form*/}
           <Button text={'+'} value={'education-form'} handleClick={handleToggle}/>
          
           </div>
@@ -79,7 +88,7 @@ function App() {
           </div>
           
           <EducationForm formSubmit={formSubmit} />
-
+          <EducationEditor data={editData}/>
         </div>
 
 
