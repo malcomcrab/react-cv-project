@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 
-function DisplayForm({data}){
+function DisplayForm({data, handleDeleteData}){
     console.log(data)
   
  
@@ -17,7 +17,7 @@ function DisplayForm({data}){
                     <p>{data.grade}</p>
                     <p>{data.educationNotes}</p>
                 </ul>
-                <Button value={'edit'}/>
+                <Button text={'Delete'}  value={data.id} handleClick={handleDeleteData}/>
             </div>
            
             
