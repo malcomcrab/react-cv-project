@@ -34,7 +34,7 @@ function EducationForm({formSubmit}){
                     <textarea cols={'20'} rows={'2'} id={'education-notes-input'} name={'educationNotes'} text={'Grade Received'}></textarea>
                 </fieldset>
                 <fieldset>
-                    <Button id={"education-submit-button"} className={'submit-button'} value={'Submit'}/>
+                    <Button id={"education-submit-button"} className={'submit-button'} text={'Submit'}/>
                 </fieldset>
             </form>
         </>

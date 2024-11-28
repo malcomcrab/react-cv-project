@@ -2,9 +2,9 @@
 function Header(){
 
     return(
-        <div>
+        <header>
             <h1>A CV App</h1>
-        </div>
+        </header>
     )
 }
 

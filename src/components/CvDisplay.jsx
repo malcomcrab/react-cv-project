@@ -1,7 +1,7 @@
 import DisplayForm from "./DisplayForm"
+import prof from "../assets/prof.jpg"
 
-
-function CvDisplay({firstName, surname, educationData, jobRole}){
+function CvDisplay({firstName, surname, educationData, jobRole, handleDeleteData}){
 
     
 
@@ -19,7 +19,7 @@ function CvDisplay({firstName, surname, educationData, jobRole}){
             </div>
             
             <div id="cv-photo-container" className="photo-container">
-                <img src="" alt="Headshot of Job Applicant"/>
+                <img src={prof} width="200px" alt="Headshot of Job Applicant"/>
             </div>
             
             
@@ -33,7 +33,7 @@ function CvDisplay({firstName, surname, educationData, jobRole}){
             */}
         
                 {educationData.map((item) => {
-                   return <DisplayForm key={item} data={item} />
+                   return <DisplayForm key={item} data={item} handleDeleteData={handleDeleteData} />
                 })}
 
 
