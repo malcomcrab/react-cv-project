@@ -5,12 +5,47 @@ function EducationEditor({ data }) {
   if (data.length > 0) {
     return (
       <div>
-        <label htmlFor={"schoolName"}>Place of Education: </label>
+        
         <Input
           id={"education-name-input"}
           name={"schoolName"}
           text={data[0].schoolName}
           required={"required"}
+        />
+
+        <Input 
+        id={"education-type-input"}
+        name={"educationType"}
+        text={data[0].educationType}      
+        required={"required"}
+        />
+
+        <Input
+        id={"education-start-input"}
+        name={"educationStart"}
+        text={data[0].educationStart}
+        required={"required"}
+        />
+
+        <Input 
+          id={"education-end-input"}
+          name={"educationEnd"}
+          text={data[0].educationEnd}
+          required={"required"}
+        />
+
+        <Input 
+          id={"education-grade-input"}
+          name={"grade"}
+          text={data[0].grade}
+          required={"required"}
+        />
+
+        <Input 
+          id={"education-notes-input"}
+          name={"educationNotes"}
+          text={data[0].educationNotes}
+
         />
         <Button text={"save"} />
       </div>
