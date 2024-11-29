@@ -1,11 +1,9 @@
-
-function Footer(){
-
-    return(
-        <div>
-            <p>By Me</p>
-        </div>
-    )
+function Footer() {
+  return (
+    <div>
+      <p>By Me</p>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;
