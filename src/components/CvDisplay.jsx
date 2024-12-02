@@ -8,6 +8,7 @@ function CvDisplay({
   educationData,
   jobRole,
   handleDeleteData,
+  skillsArray
 }) {
   return (
     <div id="cv-display-container">
@@ -37,7 +38,13 @@ function CvDisplay({
 
     <div>
       <h3>Skills: </h3>
-      <SkillsDisplayTemplate />
+      {skillsArray.map((item) => {
+        return(
+          <SkillsDisplayTemplate 
+          key={item.skillTitle}
+          data={item.skillTitle}/>
+        )
+      })}
 
     </div>
 

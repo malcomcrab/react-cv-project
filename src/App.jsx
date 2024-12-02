@@ -50,8 +50,12 @@ function App() {
     );
   };
 
-  const handleSkillsSubmit = (event) => {
-    setSkillsArray([...skillsArray, event.target.value])
+  const skillFormSubmit = (event) => {
+    event.preventDefault()
+    const skillData = new FormData(event.target)
+    let skillFormObject = Object.fromEntries(skillData.entries());
+    setSkillsArray([...skillsArray, skillFormObject])
+    console.log(skillsArray)
   } 
 
   //Turns form inputs into an object and saves to state
@@ -65,6 +69,9 @@ function App() {
     //console.log(formObject)
     //console.log(educationData[0])
   };
+
+  
+
   return (
     <>
       <main id={"main-content"} className={"container"}>
@@ -115,7 +122,7 @@ function App() {
           <EducationForm formSubmit={formSubmit} />
           <EducationEditor data={editData} />
         
-          <SkillsForm />
+          <SkillsForm skillFormSubmit={skillFormSubmit}/>
         </div>
 
         <div id={"right-column"}>
@@ -124,6 +131,7 @@ function App() {
             surname={surname}
             jobRole={jobRole}
             educationData={educationData}
+            skillsArray={skillsArray}
           />
         </div>
       </main>
