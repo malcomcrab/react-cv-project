@@ -18,25 +18,25 @@ function GeneralInfo({
     <div>
       <form id="general-info-form" className={"hidden-form"}>
         <fieldset id={"general-info-set"}>
-          <label htmlFor="first-name-input">First Name: </label>
+          <label htmlFor="firstName">First Name: </label>
           <Input
-            id={"first-name-input"}
-            name={"first-name-input"}
+            id={"firstName"}
+            name={"firstName"}
             text={name}
             handleChange={handleChangeName}
           />
           <br />
-          <label htmlFor="surname-input"> Surname: </label>
+          <label htmlFor="surnameInput"> Surname: </label>
           <Input
-            id={"surname-input"}
-            name={"surname-input"}
+            id={"surnameInput"}
+            name={"surnameInput"}
             text={surname}
             handleChange={handleChangeSurname}
           />
           <br />
           <label htmlFor="jobRole">Job Title: </label>
           <Input
-            id={"job-role-input"}
+            id={"jobRole"}
             name={"jobRole"}
             text={jobRole}
             handleChange={handleChangeJobRole}

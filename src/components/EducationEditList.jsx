@@ -7,7 +7,7 @@ function EducationList({ educationData, handleEditData, handleDeleteData }) {
         {educationData.map((item) => {
           return (
             <SubmissionItem
-              key={item}
+              key={item.id}
               data={item}
               handleEditData={handleEditData}
               handleDeleteData={handleDeleteData}

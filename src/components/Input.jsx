@@ -5,7 +5,7 @@ function Input({ handleChange, text, id, name, type, required }) {
       name={name}
       type={type}
       onChange={handleChange}
-      placeholder={text}
+      text={text}
       defaultValue={text}
       required={required}
     ></input>

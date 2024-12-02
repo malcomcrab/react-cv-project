@@ -1,5 +1,6 @@
-import DisplayForm from "./DisplayForm";
+import DisplayForm from "./EducationDisplayTemplate";
 import prof from "../assets/prof.jpg";
+import SkillsDisplayTemplate from "./SkillsDisplayTemplate";
 
 function CvDisplay({
   firstName,
@@ -33,15 +34,22 @@ function CvDisplay({
       <div>
         <hr />
       </div>
-      <div className="education-container">
-        <h3>Education:</h3>
 
+    <div>
+      <h3>Skills: </h3>
+      <SkillsDisplayTemplate />
+
+    </div>
+
+      <div className="education-container">
+        <h3>Education: </h3>
+      
         {/* educationData (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
         {educationData.map((item) => {
           return (
             <DisplayForm
-              key={item}
+              key={item.schoolName}
               data={item}
               handleDeleteData={handleDeleteData}
             />

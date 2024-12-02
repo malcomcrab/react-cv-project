@@ -2,20 +2,23 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import GeneralDisplay from "./components/GeneralDisplay";
+import GeneralDisplay from "./components/GeneralInfoDisplay";
 import GeneralInfo from "./components/GeneralInfo";
 import CvDisplay from "./components/CvDisplay";
 import EducationForm from "./components/EducationForm";
 import Button from "./components/Button";
-import EducationList from "./components/EducationList";
+import EducationList from "./components/EducationEditList";
 import EducationEditor from "./components/EducationEditor";
+import SkillsForm from "./components/SkillsForm";
+
 
 function App() {
   const [firstName, setFirstName] = useState("John");
   const [surname, setSurname] = useState("Bon");
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
-  const [editData, setEditData] = useState([]);
+  const [editData, setEditData] = useState('');
+  const [skillsArray, setSkillsArray] = useState([])
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value);
@@ -41,9 +44,15 @@ function App() {
       previousEducationData.filter((data) => data.id != event.target.value),
     );
   };
-  const handleEditData = () => {
-    setEditData(educationData);
+  const handleEditData = (event) => {
+    setEditData(() => 
+      educationData.filter((data) => data.id == event.target.value)
+    );
   };
+
+  const handleSkillsSubmit = (event) => {
+    setSkillsArray([...skillsArray, event.target.value])
+  } 
 
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
@@ -88,7 +97,7 @@ function App() {
             {/*button to open Education form*/}
             <Button
               text={"+"}
-              value={"education-form"}
+              value={"skills-form"}
               handleClick={handleToggle}
             />
           </div>
@@ -102,9 +111,11 @@ function App() {
             handleChangeJobRole={handleChangeJobRole}
           />
           <div className="form-title-container"></div>
-
+          
           <EducationForm formSubmit={formSubmit} />
           <EducationEditor data={editData} />
+        
+          <SkillsForm />
         </div>
 
         <div id={"right-column"}>
@@ -113,7 +124,6 @@ function App() {
             surname={surname}
             jobRole={jobRole}
             educationData={educationData}
-            handleDeleteData={handleDeleteData}
           />
         </div>
       </main>

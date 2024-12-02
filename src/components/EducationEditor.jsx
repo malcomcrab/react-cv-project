@@ -2,7 +2,9 @@ import Button from "./Button";
 import Input from "./Input";
 
 function EducationEditor({ data }) {
+  console.log(data)
   if (data.length > 0) {
+    console.log(data)
     return (
       <div>
         

@@ -19,13 +19,13 @@ function EducationForm({ formSubmit }) {
         <fieldset>
           <label htmlFor={"schoolName"}>Place of Education: </label>
           <Input
-            id={"education-name-input"}
+            id={"schoolName"}
             name={"schoolName"}
             required={"required"}
           />
           <label htmlFor={"educationType"}>Type of Education: </label>
           <Input
-            id={"education-type-input"}
+            id={"educationType"}
             name={"educationType"}
             text={"GCSE, A Levels etc."}
             required={"required"}
@@ -34,14 +34,14 @@ function EducationForm({ formSubmit }) {
         <fieldset>
           <label htmlFor={"educationStart"}>Start Date: </label>
           <Input
-            id={"education-start-date"}
+            id={"educationStart"}
             type={"date"}
             name={"educationStart"}
             required={"required"}
           />
           <label htmlFor={"educationEnd"}>End Date: </label>
           <Input
-            id={"education-end-date"}
+            id={"educationEnd"}
             type={"date"}
             name={"educationEnd"}
             required={"required"}
@@ -52,7 +52,7 @@ function EducationForm({ formSubmit }) {
           <textarea
             cols={"20"}
             rows={"5"}
-            id={"education-grade-input"}
+            id={"grade"}
             name={"grade"}
             text={"Grade Received"}
             required={"required"}
@@ -63,7 +63,7 @@ function EducationForm({ formSubmit }) {
           <textarea
             cols={"20"}
             rows={"2"}
-            id={"education-notes-input"}
+            id={"educationNotes"}
             name={"educationNotes"}
             text={"Grade Received"}
           ></textarea>

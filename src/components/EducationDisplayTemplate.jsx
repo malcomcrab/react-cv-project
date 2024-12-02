@@ -1,7 +1,6 @@
 
 
 function DisplayForm({ data }) {
-  console.log(data);
 
   return (
     <div>
