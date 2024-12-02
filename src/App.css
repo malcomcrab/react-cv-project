@@ -21,9 +21,6 @@ h2{
     padding:1em;
 }
 
-hr{
-    grid-column: 1/2;
-}
 
 button{
     height:fit-content;
