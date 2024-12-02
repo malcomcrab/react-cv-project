@@ -48,6 +48,17 @@ function CvDisplay({
       })}
 
     </div>
+    <div id="experience-container">
+        <h3>Work Experience: </h3>
+        
+        {experienceArray.map((item) =>{
+          return <WorkExperienceTemplate 
+          key={item.experienceName}
+          data={item}
+          />
+        })}
+        
+        </div> 
 
       <div id="education-container">
         <h3>Education: </h3>
@@ -65,19 +76,10 @@ function CvDisplay({
         })}
         
         <hr></hr>
-
-        <div id="experience-container">
-        <h3>Work Experience: </h3>
-        
-        {experienceArray.map((item) =>{
-          return <WorkExperienceTemplate 
-          key={item.experienceName}
-          data={item}
-          />
-        })}
-        
-        </div>
       </div>
+
+       
+
     </div>
   );
 }
