@@ -18,11 +18,7 @@ function EducationForm({ formSubmit }) {
       >
         <fieldset>
           <label htmlFor={"schoolName"}>Place of Education: </label>
-          <Input
-            id={"schoolName"}
-            name={"schoolName"}
-            required={"required"}
-          />
+          <Input id={"schoolName"} name={"schoolName"} required={"required"} />
           <label htmlFor={"educationType"}>Type of Education: </label>
           <Input
             id={"educationType"}

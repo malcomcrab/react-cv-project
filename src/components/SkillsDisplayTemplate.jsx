@@ -1,15 +1,11 @@
+const skills = ["Hat", "Jumping", "Tan"];
 
-const skills = ['Hat', 'Jumping', 'Tan']
-
-function SkillsDisplayTemplate({ data }){
-
-    
-    return( 
-        <>
-           <p>{data}</p>
-        </>
-    )
+function SkillsDisplayTemplate({ data }) {
+  return (
+    <>
+      <p>{data}</p>
+    </>
+  );
 }
 
-
-export default SkillsDisplayTemplate
+export default SkillsDisplayTemplate;

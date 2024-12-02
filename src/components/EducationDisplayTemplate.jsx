@@ -1,7 +1,4 @@
-
-
 function DisplayForm({ data }) {
-
   return (
     <div>
       <ul className="educationList">

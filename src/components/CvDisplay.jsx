@@ -32,9 +32,7 @@ function CvDisplay({
         <img src={prof} width="200px" alt="Headshot of Job Applicant" />
       </div>
 
-      <div>
-        <hr />
-      </div>
+     
 
     <div id="skills-container" className="list-container">
       <h3>Skills: </h3>
@@ -64,6 +62,10 @@ function CvDisplay({
         })}
 
         <hr></hr>
+
+        <div id="experience-container">
+        <h3>Work Experience: </h3>
+        </div>
       </div>
     </div>
   );

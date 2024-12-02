@@ -10,15 +10,15 @@ import Button from "./components/Button";
 import EducationList from "./components/EducationEditList";
 import EducationEditor from "./components/EducationEditor";
 import SkillsForm from "./components/SkillsForm";
-
+import WorkExperienceForm from "./components/WorkExperienceForm";
 
 function App() {
   const [firstName, setFirstName] = useState("John");
   const [surname, setSurname] = useState("Bon");
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
-  const [editData, setEditData] = useState('');
-  const [skillsArray, setSkillsArray] = useState([{skillTitle: 'toad'}])
+  const [editData, setEditData] = useState("");
+  const [skillsArray, setSkillsArray] = useState([{ skillTitle: "toad" }]);
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value);
@@ -45,18 +45,18 @@ function App() {
     );
   };
   const handleEditData = (event) => {
-    setEditData(() => 
-      educationData.filter((data) => data.id == event.target.value)
+    setEditData(() =>
+      educationData.filter((data) => data.id == event.target.value),
     );
   };
 
   const skillFormSubmit = (event) => {
-    event.preventDefault()
-    const skillData = new FormData(event.target)
+    event.preventDefault();
+    const skillData = new FormData(event.target);
     let skillFormObject = Object.fromEntries(skillData.entries());
-    setSkillsArray([...skillsArray, skillFormObject])
-    console.log(skillsArray)
-  } 
+    setSkillsArray([...skillsArray, skillFormObject]);
+    console.log(skillsArray);
+  };
 
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
@@ -69,8 +69,6 @@ function App() {
     //console.log(formObject)
     //console.log(educationData[0])
   };
-
-  
 
   return (
     <>
@@ -107,6 +105,14 @@ function App() {
               value={"skills-form"}
               handleClick={handleToggle}
             />
+
+            <h2>Add Work Experience</h2>
+            {/*button to open Education form*/}
+            <Button
+              text={"+"}
+              value={"experience-form"}
+              handleClick={handleToggle}
+            />
           </div>
 
           <GeneralInfo
@@ -118,11 +124,13 @@ function App() {
             handleChangeJobRole={handleChangeJobRole}
           />
           <div className="form-title-container"></div>
-          
+
           <EducationForm formSubmit={formSubmit} />
           <EducationEditor data={editData} />
-        
-          <SkillsForm skillFormSubmit={skillFormSubmit}/>
+
+          <SkillsForm skillFormSubmit={skillFormSubmit} />
+
+          <WorkExperienceForm />
         </div>
 
         <div id={"right-column"}>

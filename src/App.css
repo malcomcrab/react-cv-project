@@ -1,4 +1,7 @@
 body{
+    display: flex;
+    justify-content: center;
+    
     margin: 0px 1em 0px 1em;
 }
 
