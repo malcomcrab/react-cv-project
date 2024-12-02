@@ -19,6 +19,7 @@ function App() {
   const [educationData, setEducationData] = useState([]);
   const [editData, setEditData] = useState("");
   const [skillsArray, setSkillsArray] = useState([{ skillTitle: "toad" }]);
+  const [experienceArray, setExperienceArray] = useState([])
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value);
@@ -57,6 +58,14 @@ function App() {
     setSkillsArray([...skillsArray, skillFormObject]);
     console.log(skillsArray);
   };
+
+  const experienceFormSubmit = (event) => {
+    event.preventDefault()
+    const experienceData = new FormData(event.target);
+    let experienceFormObject = Object.fromEntries(experienceData.entries())
+    setExperienceArray([...experienceArray, experienceFormObject])
+    console.log(experienceArray)
+  }
 
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
@@ -130,7 +139,7 @@ function App() {
 
           <SkillsForm skillFormSubmit={skillFormSubmit} />
 
-          <WorkExperienceForm />
+          <WorkExperienceForm experienceFormSubmit={experienceFormSubmit}/>
         </div>
 
         <div id={"right-column"}>
@@ -140,6 +149,7 @@ function App() {
             jobRole={jobRole}
             educationData={educationData}
             skillsArray={skillsArray}
+            experienceArray={experienceArray}
           />
         </div>
       </main>

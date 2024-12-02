@@ -2,11 +2,11 @@ import Input from "./Input";
 import Button from "./Button";
 
 
-function WorkExperienceForm(){
+function WorkExperienceForm({ experienceFormSubmit }){
 
     return(
         <>
-            <form id="experience-form" className="hidden-form">
+            <form  onSubmit={experienceFormSubmit} id="experience-form" className="hidden-form">
                 <fieldset>
                     <label htmlFor="experienceName">Name: </label>
                     <Input id="experienceName" name="experienceName" type="text" />
@@ -27,8 +27,7 @@ function WorkExperienceForm(){
                     <label htmlFor="experienceNotes">Notes:</label>
                     <textarea id="experienceNotes" name="experienceNotes"></textarea>
                 </fieldset>
-
-
+                <Button text={'submit'}></Button>
             </form>
         </>
 

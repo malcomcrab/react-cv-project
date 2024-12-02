@@ -1,6 +1,8 @@
 import DisplayForm from "./EducationDisplayTemplate";
 import prof from "../assets/prof.jpg";
 import SkillsDisplayTemplate from "./SkillsDisplayTemplate";
+import WorkExperienceTemplate from "./WorkExperienceTemplate";
+
 
 function CvDisplay({
   firstName,
@@ -8,7 +10,8 @@ function CvDisplay({
   educationData,
   jobRole,
   handleDeleteData,
-  skillsArray
+  skillsArray,
+  experienceArray
 }) {
   return (
     <div id="cv-display-container">
@@ -60,11 +63,19 @@ function CvDisplay({
             />
           );
         })}
-
+        
         <hr></hr>
 
         <div id="experience-container">
         <h3>Work Experience: </h3>
+        
+        {experienceArray.map((item) =>{
+          return <WorkExperienceTemplate 
+          key={item.experienceName}
+          data={item}
+          />
+        })}
+        
         </div>
       </div>
     </div>
