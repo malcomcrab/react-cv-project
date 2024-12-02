@@ -6,7 +6,7 @@ function SkillsForm({ skillFormSubmit }){
     return(
 
         <>
-            <form id={'skills-form'} onSubmit={skillFormSubmit}>
+            <form id={'skills-form'} className="hidden-form" onSubmit={skillFormSubmit}>
 
                 <fieldset>
                     <label htmlFor="skillTitle">Skill Name: </label>

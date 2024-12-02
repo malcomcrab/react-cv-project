@@ -18,7 +18,7 @@ function App() {
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
   const [editData, setEditData] = useState('');
-  const [skillsArray, setSkillsArray] = useState([])
+  const [skillsArray, setSkillsArray] = useState([{skillTitle: 'toad'}])
 
   const handleToggle = (event) => {
     let toggle = document.getElementById(event.target.value);

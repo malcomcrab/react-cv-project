@@ -36,7 +36,7 @@ function CvDisplay({
         <hr />
       </div>
 
-    <div>
+    <div id="skills-container" className="list-container">
       <h3>Skills: </h3>
       {skillsArray.map((item) => {
         return(
@@ -48,7 +48,7 @@ function CvDisplay({
 
     </div>
 
-      <div className="education-container">
+      <div id="education-container">
         <h3>Education: </h3>
       
         {/* educationData (array of objects) is mapped and each object is passed through 
