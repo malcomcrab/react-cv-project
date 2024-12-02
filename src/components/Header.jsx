@@ -1,11 +1,9 @@
-
-function Header(){
-
-    return(
-        <div>
-            <h1>A CV App</h1>
-        </div>
-    )
+function Header() {
+  return (
+    <header>
+      <h1>A CV App</h1>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
