@@ -64,13 +64,10 @@ function EducationForm({ formSubmit }) {
             text={"Grade Received"}
           ></textarea>
         </fieldset>
-        <fieldset>
-          <Button
-            id={"education-submit-button"}
-            className={"submit-button"}
-            text={"Submit"}
-          />
-        </fieldset>
+        <div className="form-buttons">
+          <Button text={"Submit"}></Button>
+          <Button text={"Cancel"}></Button>
+        </div>
       </form>
     </>
   );

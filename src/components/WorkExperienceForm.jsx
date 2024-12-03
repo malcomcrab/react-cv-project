@@ -27,7 +27,10 @@ function WorkExperienceForm({ experienceFormSubmit }){
                     <label htmlFor="experienceNotes">Notes:</label>
                     <textarea id="experienceNotes" name="experienceNotes"></textarea>
                 </fieldset>
-                <Button text={'submit'}></Button>
+                <div className="form-buttons">
+                    <Button text={"Submit"}></Button>
+                    <Button text={"Cancel"}></Button>
+                </div>
             </form>
         </>
 

@@ -32,7 +32,7 @@ function CvDisplay({
       </div>
 
       <div id="cv-photo-container" className="photo-container">
-        <img src={prof} width="200px" alt="Headshot of Job Applicant" />
+        <img src={prof} width="150px" alt="Headshot of Job Applicant" />
       </div>
 
      

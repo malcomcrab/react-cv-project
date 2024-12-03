@@ -85,44 +85,65 @@ function App() {
         <div id={"left-column"}>
           <Header />
 
-          <div className="form-titles-container">
-            <h2>Personal Details</h2>
+          <div className="form-list-container">
+
+            <div className="form-controls-title">
+              <h2>Add Your Info: </h2>
+            </div>
+
+            <div className="form-controls-container">
+            <h3>Personal Details</h3>
             {/*button to open general info form */}
             <Button
               text={"+"}
               value={"general-info-form"}
               handleClick={handleToggle}
             />
+            </div>  
+            
 
-            <EducationList
-              educationData={educationData}
-              handleEditData={handleEditData}
-              handleDeleteData={handleDeleteData}
-            />
-            <h2>Add Education</h2>
-            {/*button to open Education form*/}
-            <Button
-              text={"+"}
-              value={"education-form"}
-              handleClick={handleToggle}
-            />
 
-            <h2>Add Skills</h2>
+            <div className="form-controls-container">
+              <h3>Add Education</h3>
+              {/*button to open Education form*/}
+              <Button
+                text={"+"}
+                value={"education-form"}
+                handleClick={handleToggle}
+              />
+            </div>  
+            
+            <div className="form-controls-container">
+            <h3>Add Skills</h3>
             {/*button to open Education form*/}
             <Button
               text={"+"}
               value={"skills-form"}
               handleClick={handleToggle}
             />
+            </div> 
+           
+            
 
-            <h2>Add Work Experience</h2>
+            <div className="form-controls-container">
+            <h3>Add Work Experience</h3>
             {/*button to open Education form*/}
             <Button
               text={"+"}
               value={"experience-form"}
               handleClick={handleToggle}
             />
+            </div> 
+           
           </div>
+
+
+          <EducationList
+              educationData={educationData}
+              handleEditData={handleEditData}
+              handleDeleteData={handleDeleteData}
+            />
+
 
           <GeneralInfo
             name={firstName}

@@ -18,9 +18,11 @@ function SkillsForm({ skillFormSubmit }) {
             required={"required"}
           />
         </fieldset>
-
-        <Button text={"Submit"}></Button>
-        <Button text={"Cancel"}></Button>
+        <div className="form-buttons">
+          <Button text={"Submit"}></Button>
+          <Button text={"Cancel"}></Button>
+        </div>
+        
       </form>
     </>
   );
