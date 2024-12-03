@@ -92,67 +92,112 @@ function App() {
             </div>
 
             <div className="form-controls-container">
+            <div className="controls-container">
             <h3>Personal Details</h3>
             {/*button to open general info form */}
-            <Button
-              text={"+"}
-              value={"general-info-form"}
-              handleClick={handleToggle}
-            />
+              <div>
+                <Button
+                  text={"V"}
+                  value={"general-info-form"}
+                  handleClick={handleToggle}
+                />
+
+              <Button
+                text={"+"}
+                value={"general-info-form"}
+                handleClick={handleToggle}
+              />
+              </div>
+            </div>
+
+                <GeneralInfo
+                  name={firstName}
+                  handleChangeName={handleChangeName}
+                  surname={surname}
+                  handleChangeSurname={handleChangeSurname}
+                  jobRole={jobRole}
+                  handleChangeJobRole={handleChangeJobRole}
+                />
             </div>  
             
-
-
+            
             <div className="form-controls-container">
-              <h3>Add Education</h3>
+            <div className="controls-container">
+            <h3>Add Education</h3>
               {/*button to open Education form*/}
+              <div>
               <Button
+                text={"V"}
+                value={"education-form"}
+                handleClick={handleToggle}
+              />
+
+                <Button
                 text={"+"}
                 value={"education-form"}
                 handleClick={handleToggle}
               />
-            </div>  
-            
-            <div className="form-controls-container">
-            <h3>Add Skills</h3>
-            {/*button to open Education form*/}
-            <Button
-              text={"+"}
-              value={"skills-form"}
-              handleClick={handleToggle}
-            />
-            </div> 
-           
-            
-
-            <div className="form-controls-container">
-            <h3>Add Work Experience</h3>
-            {/*button to open Education form*/}
-            <Button
-              text={"+"}
-              value={"experience-form"}
-              handleClick={handleToggle}
-            />
-            </div> 
-           
-          </div>
-
-
-          <EducationList
+              </div>
+            </div>
+            <EducationList
               educationData={educationData}
               handleEditData={handleEditData}
               handleDeleteData={handleDeleteData}
             />
 
+            </div>  
 
-          <GeneralInfo
-            name={firstName}
-            handleChangeName={handleChangeName}
-            surname={surname}
-            handleChangeSurname={handleChangeSurname}
-            jobRole={jobRole}
-            handleChangeJobRole={handleChangeJobRole}
-          />
+            
+            
+            <div className="form-controls-container">
+              <div className="controls-container">
+                <h3>Add Skills</h3>
+                {/*button to open Education form*/}
+                <div>
+                  <Button
+                    text={"V"}
+                    value={"skills-form"}
+                    handleClick={handleToggle}
+                  />
+                  <Button
+                    text={"+"}
+                    value={"skills-form"}
+                    handleClick={handleToggle}
+                  />
+                </div>
+              </div>
+
+            </div> 
+           
+            
+
+            <div className="form-controls-container">
+            <div className="controls-container">
+            <h3>Add Work Experience</h3>
+            {/*button to open Education form*/}
+            <div>
+            <Button
+              text={"V"}
+              value={"experience-form"}
+              handleClick={handleToggle}
+            />
+            <Button
+              text={"+"}
+              value={"experience-form"}
+              handleClick={handleToggle}
+            />
+            </div>
+            </div>
+            
+            </div> 
+           
+          </div>
+
+
+          
+
+
+          
           <div className="form-title-container"></div>
 
           <EducationForm formSubmit={formSubmit} />
