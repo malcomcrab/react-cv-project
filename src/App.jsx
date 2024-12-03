@@ -20,24 +20,51 @@ function App() {
   const [editData, setEditData] = useState("");
   const [skillsArray, setSkillsArray] = useState([{ skillTitle: "toad" }]);
   const [experienceArray, setExperienceArray] = useState([])
+  const [isActive, setIsActive] = useState(false)
+
 
   const handleToggle = (event) => {
-    let toggle = document.getElementById(event.target.value);
-    if (toggle.className === "hidden-form") {
-      toggle.className = "unhidden-form";
+    let toggleForm = document.getElementById(event.target.value);
+    
+    if (toggleForm.className === "hidden-form") {
+      hideAllLists()
+      hideForms()
+      toggleForm.className = "unhidden-form";
     } else {
-      toggle.className = "hidden-form";
+      toggleForm.className = "hidden-form";
     }
   };
 
   const handleListToggle = (event) => {
     let toggle = document.getElementById(event.target.value);
+   
     if (toggle.className === "hidden-list") {
+      hideAllLists()
+      hideForms()
       toggle.className = "unhidden-list";
     } else {
       toggle.className = "hidden-list";
     }
   };
+
+  function hideAllLists(){
+    let lists = document.querySelectorAll('.unhidden-list')
+    console.log(lists)
+    let listElementArray = [...lists]
+    listElementArray.map(item => {
+      item.className = "hidden-list"
+    })
+  }
+  
+  function hideForms(){
+    let hideForms = document.querySelectorAll('form')
+    let formArray = [...hideForms]
+    formArray.map(item => {
+      item.className = "hidden-form"
+    })
+  }
+  
+
 
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => {
@@ -104,18 +131,14 @@ function App() {
             <div className="controls-container">
             <h3>Personal Details</h3>
             {/*button to open general info form */}
-              <div>
+              <div >
                 <Button
+                  className={"control-list-button"}
                   text={"V"}
                   value={"general-info-form"}
                   handleClick={handleToggle}
                 />
 
-              <Button
-                text={"+"}
-                value={"general-info-form"}
-                handleClick={handleToggle}
-              />
               </div>
             </div>
 
@@ -136,12 +159,14 @@ function App() {
               {/*button to open Education form*/}
               <div>
               <Button
+              className={"control-list-button"}
                 text={"V"}
                 value={"education-list-container"}
                 handleClick={handleListToggle}
               />
 
                 <Button
+                className={"control-list-button"}
                 text={"+"}
                 value={"education-form"}
                 handleClick={handleToggle}
@@ -149,6 +174,7 @@ function App() {
               </div>
             </div>
             <EducationList
+              className={"control-list-button"}
               educationData={educationData}
               handleEditData={handleEditData}
               handleDeleteData={handleDeleteData}
@@ -164,11 +190,13 @@ function App() {
                 {/*button to open Education form*/}
                 <div>
                   <Button
+                  className={"control-list-button"}
                     text={"V"}
                     value={"skills-form"}
                     handleClick={handleToggle}
                   />
                   <Button
+                  className={"control-list-button"}
                     text={"+"}
                     value={"skills-form"}
                     handleClick={handleToggle}
@@ -186,11 +214,13 @@ function App() {
             {/*button to open Education form*/}
             <div>
             <Button
+            className={"control-list-button"}
               text={"V"}
               value={"experience-form"}
               handleClick={handleToggle}
             />
             <Button
+            className={"control-list-button"}
               text={"+"}
               value={"experience-form"}
               handleClick={handleToggle}

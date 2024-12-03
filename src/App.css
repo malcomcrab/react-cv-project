@@ -7,9 +7,12 @@ body{
 
 header{
     width: 100%;
-    background-color: rgb(212, 211, 211);
+    background-color: rgb(112, 112, 112);
     box-shadow: 1px 1px 5px 1px;
     margin-bottom: 15px;
+    border:solid;
+    border-radius: 15px;
+    border-style:ridge;
 }
 
 main{
@@ -23,9 +26,11 @@ p{
 h1{
     margin:5px;
     padding:10px;
+    
 }
 
 h2{
+    color:rgb(180, 180, 180);
     margin:10px;
     font-size: larger;
 }
@@ -33,6 +38,7 @@ h2{
 h3{
     margin:10px;
     font-size: medium;
+    
 }
 
 button{
@@ -49,16 +55,27 @@ form{
     box-shadow: 1px 1px 5px 1px;
     margin:1em;
     width: 90%;
-    z-index: 2;
+    z-index: 3;
+    background-color: rgb(53, 53, 53);
+    border:solid;
+    border-radius: 15px;
+    border-style:ridge;
+}
+
+input, textarea{
+    border-radius: 15px;
+    background-color: rgb(155, 155, 155);
 }
 
 fieldset{
     display: grid;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(168, 168, 168);
     align-items: center;
     grid-template-columns: 1fr 1fr;     
     grid-template-rows: 1fr;
     border-radius: 15px;
+    box-shadow: 1px 1px 5px 1px;
+    margin: 5px 0px 5px 0px;
 }
 
 label{
@@ -76,6 +93,18 @@ input{
     margin:0.5em;
 }
 
+.control-list-button{
+    background: none;
+    border:none;
+    box-shadow: none;
+    color:aliceblue
+}
+
+.control-list-button:hover{
+    font-size: medium;
+    transition: 0.5s;
+}
+
 .form-controls-container{
     display: flex;
     flex-direction: column;
@@ -85,8 +114,32 @@ input{
     box-shadow: inset;
     box-shadow: 1px 1px 5px 1px;
     margin-bottom: 5px;
+    border:solid;
+    border-radius: 15px;
+    border-style:ridge;
+    z-index: 5;
 }
 
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    font-weight: 600;
+    border:solid;
+    padding:2px;
+    width:80%;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    z-index: 4;
+}
+
+.list-button{
+    border-style: none;
+    background: none;
+    padding:0px;
+    box-shadow: none;
+}
 
 .controls-container{
     display: flex;
@@ -94,12 +147,14 @@ input{
     align-items: center;
     background-color: rgb(104, 104, 104);
     overflow:auto;
-    z-index: 1;
+    z-index: 5;
 }
 
 .form-list-container{
     padding:1em;
     width: 100%;
+    background-color: rgb(46, 46, 46);
+    z-index: 5;
 }
 
 .hidden-form{
@@ -118,7 +173,9 @@ input{
 }
 
 .unhidden-list{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: drop 1s both;
 }
 
