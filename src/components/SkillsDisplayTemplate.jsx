@@ -3,7 +3,7 @@ const skills = ["Hat", "Jumping", "Tan"];
 function SkillsDisplayTemplate({ data }) {
   return (
     <>
-      <p>{data}</p>
+      <li>{data}</li>
     </>
   );
 }

@@ -14,7 +14,7 @@ function GeneralInfo({
   handleChangeJobRole,
 }) {
   return (
-    <div>
+   
       <form id="general-info-form" className={"hidden-form"}>
         <fieldset id={"general-info-set"}>
           <label htmlFor="firstName">First Name: </label>
@@ -42,7 +42,6 @@ function GeneralInfo({
           />
         </fieldset>
       </form>
-    </div>
   );
 }
 

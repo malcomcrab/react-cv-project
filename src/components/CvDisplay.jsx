@@ -34,8 +34,9 @@ function CvDisplay({
         <img src={prof} width="150px" alt="Headshot of Job Applicant" />
       </div>
 
-      <div id="skills-container" className="list-container">
-        <h3>Skills: </h3>
+      <div id="left-cv-container" className="list-container">
+        <h4>Skills: </h4>
+        <ul>
         {skillsArray.map((item) => {
           return (
             <SkillsDisplayTemplate
@@ -44,7 +45,13 @@ function CvDisplay({
             />
           );
         })}
+        </ul>
       </div>
+
+      <div id="about-container">
+        <h3>About Me: </h3>
+      </div>
+
       <div id="experience-container">
         <h3>Work Experience: </h3>
 

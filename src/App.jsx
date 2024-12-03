@@ -21,7 +21,7 @@ function App() {
   const [educationData, setEducationData] = useState([]);
   const [editData, setEditData] = useState("");
   const [skillsArray, setSkillsArray] = useState([
-    { id: crypto.randomUUID(), skillTitle: "toad" },
+    { id: crypto.randomUUID(), skillTitle: "Toad" },
   ]);
   const [experienceArray, setExperienceArray] = useState([]);
   const [isActive, setIsActive] = useState(false);

@@ -2,7 +2,7 @@ import SubmissionItem from "./SubmissionItem";
 
 function SkillsEditList({ data }) {
   return (
-    <div>
+    
       <div id="skills-list-container" className="hidden-list">
         {data.map((item) => {
           return (
@@ -15,7 +15,7 @@ function SkillsEditList({ data }) {
           );
         })}
       </div>
-    </div>
+    
   );
 }
 
