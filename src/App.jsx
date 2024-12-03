@@ -30,6 +30,15 @@ function App() {
     }
   };
 
+  const handleListToggle = (event) => {
+    let toggle = document.getElementById(event.target.value);
+    if (toggle.className === "hidden-list") {
+      toggle.className = "unhidden-list";
+    } else {
+      toggle.className = "hidden-list";
+    }
+  };
+
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => {
     setFirstName(event.target.value);
@@ -128,8 +137,8 @@ function App() {
               <div>
               <Button
                 text={"V"}
-                value={"education-form"}
-                handleClick={handleToggle}
+                value={"education-list-container"}
+                handleClick={handleListToggle}
               />
 
                 <Button

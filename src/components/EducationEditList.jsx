@@ -3,7 +3,7 @@ import SubmissionItem from "./SubmissionItem";
 function EducationList({ educationData, handleEditData, handleDeleteData }) {
   return (
     <div>
-      <div>
+      <div id="education-list-container">
         {educationData.map((item) => {
           return (
             <SubmissionItem
