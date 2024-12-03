@@ -3,7 +3,6 @@ import prof from "../assets/prof.jpg";
 import SkillsDisplayTemplate from "./SkillsDisplayTemplate";
 import WorkExperienceTemplate from "./WorkExperienceTemplate";
 
-
 function CvDisplay({
   firstName,
   surname,
@@ -11,7 +10,7 @@ function CvDisplay({
   jobRole,
   handleDeleteData,
   skillsArray,
-  experienceArray
+  experienceArray,
 }) {
   return (
     <div id="cv-display-container">
@@ -35,34 +34,30 @@ function CvDisplay({
         <img src={prof} width="150px" alt="Headshot of Job Applicant" />
       </div>
 
-     
-
-    <div id="skills-container" className="list-container">
-      <h3>Skills: </h3>
-      {skillsArray.map((item) => {
-        return(
-          <SkillsDisplayTemplate 
-          key={item.skillTitle}
-          data={item.skillTitle}/>
-        )
-      })}
-
-    </div>
-    <div id="experience-container">
-        <h3>Work Experience: </h3>
-        
-        {experienceArray.map((item) =>{
-          return <WorkExperienceTemplate 
-          key={item.experienceName}
-          data={item}
-          />
+      <div id="skills-container" className="list-container">
+        <h3>Skills: </h3>
+        {skillsArray.map((item) => {
+          return (
+            <SkillsDisplayTemplate
+              key={item.skillTitle}
+              data={item.skillTitle}
+            />
+          );
         })}
-        
-        </div> 
+      </div>
+      <div id="experience-container">
+        <h3>Work Experience: </h3>
+
+        {experienceArray.map((item) => {
+          return (
+            <WorkExperienceTemplate key={item.experienceName} data={item} />
+          );
+        })}
+      </div>
 
       <div id="education-container">
         <h3>Education: </h3>
-      
+
         {/* educationData (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
         {educationData.map((item) => {
@@ -74,12 +69,9 @@ function CvDisplay({
             />
           );
         })}
-        
+
         <hr></hr>
       </div>
-
-       
-
     </div>
   );
 }

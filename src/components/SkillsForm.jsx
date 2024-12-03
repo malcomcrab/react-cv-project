@@ -1,7 +1,7 @@
 import Input from "./Input";
 import Button from "./Button";
 
-function SkillsForm({ skillFormSubmit}) {
+function SkillsForm({ skillFormSubmit }) {
   return (
     <>
       <form
@@ -22,7 +22,6 @@ function SkillsForm({ skillFormSubmit}) {
           <Button text={"Submit"}></Button>
           <Button text={"Cancel"}></Button>
         </div>
-        
       </form>
     </>
   );

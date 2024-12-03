@@ -11,6 +11,8 @@ import EducationList from "./components/EducationEditList";
 import EducationEditor from "./components/EducationEditor";
 import SkillsForm from "./components/SkillsForm";
 import WorkExperienceForm from "./components/WorkExperienceForm";
+import WorkExperienceList from "./components/WorkExperienceList";
+import SkillsEditList from "./components/SkillsEditList";
 
 function App() {
   const [firstName, setFirstName] = useState("John");
@@ -18,17 +20,18 @@ function App() {
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
   const [editData, setEditData] = useState("");
-  const [skillsArray, setSkillsArray] = useState([{ skillTitle: "toad" }]);
-  const [experienceArray, setExperienceArray] = useState([])
-  const [isActive, setIsActive] = useState(false)
-
+  const [skillsArray, setSkillsArray] = useState([
+    { id: crypto.randomUUID(), skillTitle: "toad" },
+  ]);
+  const [experienceArray, setExperienceArray] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   const handleToggle = (event) => {
     let toggleForm = document.getElementById(event.target.value);
-    
+
     if (toggleForm.className === "hidden-form") {
-      hideAllLists()
-      hideForms()
+      hideAllLists();
+      hideForms();
       toggleForm.className = "unhidden-form";
     } else {
       toggleForm.className = "hidden-form";
@@ -37,34 +40,32 @@ function App() {
 
   const handleListToggle = (event) => {
     let toggle = document.getElementById(event.target.value);
-   
+
     if (toggle.className === "hidden-list") {
-      hideAllLists()
-      hideForms()
+      hideAllLists();
+      hideForms();
       toggle.className = "unhidden-list";
     } else {
       toggle.className = "hidden-list";
     }
   };
 
-  function hideAllLists(){
-    let lists = document.querySelectorAll('.unhidden-list')
-    console.log(lists)
-    let listElementArray = [...lists]
-    listElementArray.map(item => {
-      item.className = "hidden-list"
-    })
+  function hideAllLists() {
+    let lists = document.querySelectorAll(".unhidden-list");
+    console.log(lists);
+    let listElementArray = [...lists];
+    listElementArray.map((item) => {
+      item.className = "hidden-list";
+    });
   }
-  
-  function hideForms(){
-    let hideForms = document.querySelectorAll('form')
-    let formArray = [...hideForms]
-    formArray.map(item => {
-      item.className = "hidden-form"
-    })
-  }
-  
 
+  function hideForms() {
+    let hideForms = document.querySelectorAll("form");
+    let formArray = [...hideForms];
+    formArray.map((item) => {
+      item.className = "hidden-form";
+    });
+  }
 
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => {
@@ -77,6 +78,7 @@ function App() {
     setJobRole(event.target.value);
   };
   const handleDeleteData = (event) => {
+    console.log(event.target.value);
     setEducationData((previousEducationData) =>
       previousEducationData.filter((data) => data.id != event.target.value),
     );
@@ -91,17 +93,19 @@ function App() {
     event.preventDefault();
     const skillData = new FormData(event.target);
     let skillFormObject = Object.fromEntries(skillData.entries());
+    skillFormObject.id = crypto.randomUUID();
     setSkillsArray([...skillsArray, skillFormObject]);
     console.log(skillsArray);
   };
 
   const experienceFormSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const experienceData = new FormData(event.target);
-    let experienceFormObject = Object.fromEntries(experienceData.entries())
-    setExperienceArray([...experienceArray, experienceFormObject])
-    console.log(experienceArray)
-  }
+    let experienceFormObject = Object.fromEntries(experienceData.entries());
+    experienceFormObject.id = crypto.randomUUID();
+    setExperienceArray([...experienceArray, experienceFormObject]);
+    console.log(experienceArray);
+  };
 
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
@@ -122,121 +126,107 @@ function App() {
           <Header />
 
           <div className="form-list-container">
-
             <div className="form-controls-title">
               <h2>Add Your Info: </h2>
             </div>
 
             <div className="form-controls-container">
-            <div className="controls-container">
-            <h3>Personal Details</h3>
-            {/*button to open general info form */}
-              <div >
-                <Button
-                  className={"control-list-button"}
-                  text={"V"}
-                  value={"general-info-form"}
-                  handleClick={handleToggle}
-                />
-
+              <div className="controls-container">
+                <h3>Personal Details</h3>
+                {/*button to open general info form */}
+                <div>
+                  <Button
+                    className={"control-list-button"}
+                    text={"V"}
+                    value={"general-info-form"}
+                    handleClick={handleToggle}
+                  />
+                </div>
               </div>
+
+              <GeneralInfo
+                name={firstName}
+                handleChangeName={handleChangeName}
+                surname={surname}
+                handleChangeSurname={handleChangeSurname}
+                jobRole={jobRole}
+                handleChangeJobRole={handleChangeJobRole}
+              />
             </div>
 
-                <GeneralInfo
-                  name={firstName}
-                  handleChangeName={handleChangeName}
-                  surname={surname}
-                  handleChangeSurname={handleChangeSurname}
-                  jobRole={jobRole}
-                  handleChangeJobRole={handleChangeJobRole}
-                />
-            </div>  
-            
-            
             <div className="form-controls-container">
-            <div className="controls-container">
-            <h3>Add Education</h3>
-              {/*button to open Education form*/}
-              <div>
-              <Button
-              className={"control-list-button"}
-                text={"V"}
-                value={"education-list-container"}
-                handleClick={handleListToggle}
-              />
+              <div className="controls-container">
+                <h3>Add Education</h3>
+                {/*button to open Education form*/}
+                <div>
+                  <Button
+                    className={"control-list-button"}
+                    text={"V"}
+                    value={"education-list-container"}
+                    handleClick={handleListToggle}
+                  />
 
-                <Button
-                className={"control-list-button"}
-                text={"+"}
-                value={"education-form"}
-                handleClick={handleToggle}
-              />
+                  <Button
+                    className={"control-list-button"}
+                    text={"+"}
+                    value={"education-form"}
+                    handleClick={handleToggle}
+                  />
+                </div>
               </div>
+              <EducationList
+                className={"control-list-button"}
+                educationData={educationData}
+                handleEditData={handleEditData}
+                handleDeleteData={handleDeleteData}
+              />
             </div>
-            <EducationList
-              className={"control-list-button"}
-              educationData={educationData}
-              handleEditData={handleEditData}
-              handleDeleteData={handleDeleteData}
-            />
 
-            </div>  
-
-            
-            
             <div className="form-controls-container">
               <div className="controls-container">
                 <h3>Add Skills</h3>
                 {/*button to open Education form*/}
                 <div>
                   <Button
-                  className={"control-list-button"}
+                    className={"control-list-button"}
                     text={"V"}
-                    value={"skills-form"}
-                    handleClick={handleToggle}
+                    value={"skills-list-container"}
+                    handleClick={handleListToggle}
                   />
                   <Button
-                  className={"control-list-button"}
+                    className={"control-list-button"}
                     text={"+"}
                     value={"skills-form"}
                     handleClick={handleToggle}
                   />
                 </div>
               </div>
-
-            </div> 
-           
-            
+              <SkillsEditList data={skillsArray} />
+            </div>
 
             <div className="form-controls-container">
-            <div className="controls-container">
-            <h3>Add Work Experience</h3>
-            {/*button to open Education form*/}
-            <div>
-            <Button
-            className={"control-list-button"}
-              text={"V"}
-              value={"experience-form"}
-              handleClick={handleToggle}
-            />
-            <Button
-            className={"control-list-button"}
-              text={"+"}
-              value={"experience-form"}
-              handleClick={handleToggle}
-            />
+              <div className="controls-container">
+                <h3>Add Work Experience</h3>
+                {/*button to open Education form*/}
+                <div>
+                  <Button
+                    className={"control-list-button"}
+                    text={"V"}
+                    value={"experience-list-container"}
+                    handleClick={handleListToggle}
+                  />
+                  <Button
+                    className={"control-list-button"}
+                    text={"+"}
+                    value={"experience-form"}
+                    handleClick={handleToggle}
+                  />
+                </div>
+              </div>
+              <WorkExperienceList experienceArray={experienceArray} />
             </div>
-            </div>
-            
-            </div> 
-           
           </div>
 
-
-          
-
-
-          
           <div className="form-title-container"></div>
 
           <EducationForm formSubmit={formSubmit} />
@@ -244,7 +234,7 @@ function App() {
 
           <SkillsForm skillFormSubmit={skillFormSubmit} />
 
-          <WorkExperienceForm experienceFormSubmit={experienceFormSubmit}/>
+          <WorkExperienceForm experienceFormSubmit={experienceFormSubmit} />
         </div>
 
         <div id={"right-column"}>

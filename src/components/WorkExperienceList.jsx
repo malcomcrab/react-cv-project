@@ -1,15 +1,20 @@
 import SubmissionItem from "./SubmissionItem";
 
-function EducationList({ educationData, handleEditData, handleDeleteData }) {
+function WorkExperienceList({
+  experienceArray,
+  handleEditData,
+  handleDeleteData,
+}) {
+  console.log(experienceArray);
   return (
     <div>
-      <div id="education-list-container" className="hidden-list">
-        {educationData.map((item) => {
+      <div id="experience-list-container" className="hidden-list">
+        {experienceArray.map((item) => {
           return (
             <SubmissionItem
               key={item.id}
               data={item}
-              title={item.schoolName}
+              title={item.experienceName}
               handleEditData={handleEditData}
               handleDeleteData={handleDeleteData}
             />
@@ -20,4 +25,4 @@ function EducationList({ educationData, handleEditData, handleDeleteData }) {
   );
 }
 
-export default EducationList;
+export default WorkExperienceList;
