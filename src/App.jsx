@@ -22,11 +22,13 @@ function App() {
   const [educationData, setEducationData] = useState([]);
   const [editData, setEditData] = useState([]);
   const [skillsArray, setSkillsArray] = useState([
-    { id: crypto.randomUUID(), skillTitle: "Toad" },
+    { id: crypto.randomUUID(), skillTitle: "Karate Black Belt" },
   ]);
   const [experienceArray, setExperienceArray] = useState([]);
 
-  //When the name inputs are changed state is updated which rerenders the names and job role display
+  {/*When the user types in any of the general info inputs it is updated to its respective state
+  the CV display for the input rerenders and updates after each keystroke.*/}
+
   const handleChangeName = (event) => {
     setFirstName(event.target.value);
   };
@@ -53,8 +55,8 @@ function App() {
     displayed in the form inputs */}
 
   const handleEditData = (event) => {
-   let t = educationData.filter((data) => data.id == event.target.value)
-   setEditData(t)
+   let editForm = educationData.filter((data) => data.id == event.target.value)
+   setEditData(editForm )
   
   };
 
@@ -65,9 +67,6 @@ function App() {
           <Header />
 
           <div className="form-list-container">
-            <div className="form-controls-title">
-              <h2>Add Your Info: </h2>
-            </div>
 
             <div className="form-controls-container">
               <div className="controls-container">
@@ -166,8 +165,9 @@ function App() {
             </div>
           </div>
 
-          <div className="form-title-container"></div>
+          
 
+          <div className="form-list-container" >
           <EducationForm
             setEducationData={setEducationData}
             educationData={educationData}
@@ -185,6 +185,7 @@ function App() {
             experienceArray={experienceArray}
           />
         </div>
+      </div>
 
         <div id={"right-column"}>
           <CvDisplay
