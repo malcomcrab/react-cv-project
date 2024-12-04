@@ -3,6 +3,9 @@ import prof from "../assets/prof.jpg";
 import SkillsDisplayTemplate from "./SkillsDisplayTemplate";
 import WorkExperienceTemplate from "./WorkExperienceTemplate";
 
+  {/* this component creates and displays the CV for display in the browser. 
+    as new data is added or deleted it updates the CV live */}
+
 function CvDisplay({
   firstName,
   surname,
@@ -37,6 +40,8 @@ function CvDisplay({
       <div id="left-cv-container" className="list-container">
         <h4>Skills: </h4>
         <ul>
+          {/* Skills formData (array of objects) is mapped and each object is passed through 
+        the DisplayForm component and rendered.*/}
           {skillsArray.map((item) => {
             return (
               <SkillsDisplayTemplate
@@ -55,6 +60,8 @@ function CvDisplay({
       <div id="experience-container">
         <h3>Work Experience: </h3>
 
+          {/* work experience from data (array of objects) is mapped and each object is passed through 
+        the DisplayForm component and rendered.*/}
         {experienceArray.map((item) => {
           return (
             <WorkExperienceTemplate key={item.experienceName} data={item} />

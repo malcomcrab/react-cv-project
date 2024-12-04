@@ -1,5 +1,7 @@
 import SubmissionItem from "./SubmissionItem";
 
+{/* Creates a list element for the Education formData passed to it*/}
+
 function EducationList({ educationData, handleEditData, handleDeleteData }) {
   return (
     <div>

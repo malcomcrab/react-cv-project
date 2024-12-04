@@ -1,6 +1,10 @@
 import Input from "./elements/Input";
 import Button from "./elements/Button";
 
+{/* On submission the input fields are turned into a formData object. A unique Key is added to the object
+  and it is then stored in state in the App.jsx file.*/}
+
+
 function SkillsForm({ skillsArray, setSkillsArray }) {
   const skillFormSubmit = (event) => {
     event.preventDefault();

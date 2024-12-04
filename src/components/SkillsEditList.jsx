@@ -1,5 +1,7 @@
 import SubmissionItem from "./SubmissionItem";
 
+{/* Creates a list element for the Skills formData passed to it*/}
+
 function SkillsEditList({ data }) {
   return (
     <div id="skills-list-container" className="hidden-list">

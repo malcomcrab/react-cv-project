@@ -20,13 +20,13 @@ function App() {
   const [surname, setSurname] = useState("Bon");
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
-  const [editData, setEditData] = useState("");
+  const [editData, setEditData] = useState([]);
   const [skillsArray, setSkillsArray] = useState([
     { id: crypto.randomUUID(), skillTitle: "Toad" },
   ]);
   const [experienceArray, setExperienceArray] = useState([]);
 
-  //When the name inputs are changed state is updates which rerenders the name display
+  //When the name inputs are changed state is updated which rerenders the names and job role display
   const handleChangeName = (event) => {
     setFirstName(event.target.value);
   };
@@ -38,16 +38,24 @@ function App() {
   };
 
   
+  {/*The value of the delete button in the list item is the ID of the formData object it represents
+  using this it is filtered out of the array and the new array is overwritten in state*/} 
+
   const handleDeleteData = (event) => {
     console.log(event.target.value);
     setEducationData((previousEducationData) =>
       previousEducationData.filter((data) => data.id != event.target.value),
     );
   };
+
+  {/* The value of the edit button is the ID of the form data object in state. Using the ID the object is
+    copied and stored to a new state 'editData' this is passed to the educationEdior component and 
+    displayed in the form inputs */}
+
   const handleEditData = (event) => {
-    setEditData(() =>
-      educationData.filter((data) => data.id == event.target.value),
-    );
+   let t = educationData.filter((data) => data.id == event.target.value)
+   setEditData(t)
+  
   };
 
   return (
@@ -164,6 +172,7 @@ function App() {
             setEducationData={setEducationData}
             educationData={educationData}
           />
+
           <EducationEditor data={editData} />
 
           <SkillsForm
