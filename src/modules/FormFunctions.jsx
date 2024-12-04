@@ -18,7 +18,7 @@ const handleToggle = (event) => {
   {/* Closes all other open forms in display */}
 
 function hideForms() {
-  let hideForms = document.querySelectorAll("form");
+  let hideForms = document.querySelectorAll(".unhidden-form");
   let formArray = [...hideForms];
   formArray.map((item) => {
     item.className = "hidden-form";

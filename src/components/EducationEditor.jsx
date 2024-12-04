@@ -1,5 +1,6 @@
 import Button from "./elements/Button";
 import Input from "./elements/Input";
+import { useEffect } from "react";
 
 {/* When an edit button is clicked on one of the data lists its stored to state and passed to this
   component and rendered in a form to be edited by the user.
@@ -10,7 +11,10 @@ import Input from "./elements/Input";
   succesfully.*/}
 
 function EducationEditor({ data }) {
-  console.log(data);
+  
+  useEffect(() => {
+    console.log(data);
+  })
  
   if (data.length > 0) {
     
