@@ -1,7 +1,16 @@
-import Input from "./Input";
-import Button from "./Button";
+import Input from "./elements/Input";
+import Button from "./elements/Button";
 
-function WorkExperienceForm({ experienceFormSubmit }) {
+function WorkExperienceForm({ setExperienceArray, experienceArray }) {
+  const experienceFormSubmit = (event) => {
+    event.preventDefault();
+    const experienceData = new FormData(event.target);
+    let experienceFormObject = Object.fromEntries(experienceData.entries());
+    experienceFormObject.id = crypto.randomUUID();
+    setExperienceArray([...experienceArray, experienceFormObject]);
+    console.log(experienceArray);
+  };
+
   return (
     <>
       <form

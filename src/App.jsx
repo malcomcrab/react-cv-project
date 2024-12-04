@@ -1,18 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import GeneralDisplay from "./components/GeneralInfoDisplay";
+import Header from "./components/headerFooter/Header";
+import Footer from "./components/headerFooter/Footer";
 import GeneralInfo from "./components/GeneralInfo";
 import CvDisplay from "./components/CvDisplay";
 import EducationForm from "./components/EducationForm";
-import Button from "./components/Button";
+import Button from "./components/elements/Button";
 import EducationList from "./components/EducationEditList";
 import EducationEditor from "./components/EducationEditor";
 import SkillsForm from "./components/SkillsForm";
 import WorkExperienceForm from "./components/WorkExperienceForm";
 import WorkExperienceList from "./components/WorkExperienceList";
 import SkillsEditList from "./components/SkillsEditList";
+import { handleListToggle, hideAllLists } from "./modules/ListFunctions";
+import { hideForms, handleToggle } from "./modules/FormFunctions";
 
 function App() {
   const [firstName, setFirstName] = useState("John");
@@ -24,48 +25,6 @@ function App() {
     { id: crypto.randomUUID(), skillTitle: "Toad" },
   ]);
   const [experienceArray, setExperienceArray] = useState([]);
-  const [isActive, setIsActive] = useState(false);
-
-  const handleToggle = (event) => {
-    let toggleForm = document.getElementById(event.target.value);
-
-    if (toggleForm.className === "hidden-form") {
-      hideAllLists();
-      hideForms();
-      toggleForm.className = "unhidden-form";
-    } else {
-      toggleForm.className = "hidden-form";
-    }
-  };
-
-  const handleListToggle = (event) => {
-    let toggle = document.getElementById(event.target.value);
-
-    if (toggle.className === "hidden-list") {
-      hideAllLists();
-      hideForms();
-      toggle.className = "unhidden-list";
-    } else {
-      toggle.className = "hidden-list";
-    }
-  };
-
-  function hideAllLists() {
-    let lists = document.querySelectorAll(".unhidden-list");
-    console.log(lists);
-    let listElementArray = [...lists];
-    listElementArray.map((item) => {
-      item.className = "hidden-list";
-    });
-  }
-
-  function hideForms() {
-    let hideForms = document.querySelectorAll("form");
-    let formArray = [...hideForms];
-    formArray.map((item) => {
-      item.className = "hidden-form";
-    });
-  }
 
   //When the name inputs are changed state is updates which rerenders the name display
   const handleChangeName = (event) => {
@@ -77,6 +36,8 @@ function App() {
   const handleChangeJobRole = (event) => {
     setJobRole(event.target.value);
   };
+
+  
   const handleDeleteData = (event) => {
     console.log(event.target.value);
     setEducationData((previousEducationData) =>
@@ -87,36 +48,6 @@ function App() {
     setEditData(() =>
       educationData.filter((data) => data.id == event.target.value),
     );
-  };
-
-  const skillFormSubmit = (event) => {
-    event.preventDefault();
-    const skillData = new FormData(event.target);
-    let skillFormObject = Object.fromEntries(skillData.entries());
-    skillFormObject.id = crypto.randomUUID();
-    setSkillsArray([...skillsArray, skillFormObject]);
-    console.log(skillsArray);
-  };
-
-  const experienceFormSubmit = (event) => {
-    event.preventDefault();
-    const experienceData = new FormData(event.target);
-    let experienceFormObject = Object.fromEntries(experienceData.entries());
-    experienceFormObject.id = crypto.randomUUID();
-    setExperienceArray([...experienceArray, experienceFormObject]);
-    console.log(experienceArray);
-  };
-
-  //Turns form inputs into an object and saves to state
-  const formSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    event.target.reset();
-    let formObject = Object.fromEntries(data.entries());
-    formObject.id = crypto.randomUUID();
-    setEducationData([...educationData, formObject]);
-    //console.log(formObject)
-    //console.log(educationData[0])
   };
 
   return (
@@ -229,12 +160,21 @@ function App() {
 
           <div className="form-title-container"></div>
 
-          <EducationForm formSubmit={formSubmit} />
+          <EducationForm
+            setEducationData={setEducationData}
+            educationData={educationData}
+          />
           <EducationEditor data={editData} />
 
-          <SkillsForm skillFormSubmit={skillFormSubmit} />
+          <SkillsForm
+            setSkillsArray={setSkillsArray}
+            skillsArray={skillsArray}
+          />
 
-          <WorkExperienceForm experienceFormSubmit={experienceFormSubmit} />
+          <WorkExperienceForm
+            setExperienceArray={setExperienceArray}
+            experienceArray={experienceArray}
+          />
         </div>
 
         <div id={"right-column"}>

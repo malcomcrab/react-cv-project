@@ -37,14 +37,14 @@ function CvDisplay({
       <div id="left-cv-container" className="list-container">
         <h4>Skills: </h4>
         <ul>
-        {skillsArray.map((item) => {
-          return (
-            <SkillsDisplayTemplate
-              key={item.skillTitle}
-              data={item.skillTitle}
-            />
-          );
-        })}
+          {skillsArray.map((item) => {
+            return (
+              <SkillsDisplayTemplate
+                key={item.skillTitle}
+                data={item.skillTitle}
+              />
+            );
+          })}
         </ul>
       </div>
 

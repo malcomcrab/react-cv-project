@@ -1,11 +1,13 @@
-import Button from "./Button";
-import Input from "./Input";
+import Button from "./elements/Button";
+import Input from "./elements/Input";
 
 function EducationEditor({ data }) {
+  console.log(data);
+ 
   if (data.length > 0) {
-    console.log(data);
+    
     return (
-      <div>
+      <form key={data}>
         <Input
           id={"education-name-input"}
           name={"schoolName"}
@@ -24,6 +26,8 @@ function EducationEditor({ data }) {
           id={"education-start-input"}
           name={"educationStart"}
           text={data[0].educationStart}
+
+          type={'date'}
           required={"required"}
         />
 
@@ -31,6 +35,7 @@ function EducationEditor({ data }) {
           id={"education-end-input"}
           name={"educationEnd"}
           text={data[0].educationEnd}
+          type={'date'}
           required={"required"}
         />
 
@@ -47,7 +52,7 @@ function EducationEditor({ data }) {
           text={data[0].educationNotes}
         />
         <Button text={"save"} />
-      </div>
+      </form>
     );
   }
 }

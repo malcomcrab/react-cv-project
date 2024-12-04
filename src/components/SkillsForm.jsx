@@ -1,7 +1,16 @@
-import Input from "./Input";
-import Button from "./Button";
+import Input from "./elements/Input";
+import Button from "./elements/Button";
 
-function SkillsForm({ skillFormSubmit }) {
+function SkillsForm({ skillsArray, setSkillsArray }) {
+  const skillFormSubmit = (event) => {
+    event.preventDefault();
+    const skillData = new FormData(event.target);
+    let skillFormObject = Object.fromEntries(skillData.entries());
+    skillFormObject.id = crypto.randomUUID();
+    setSkillsArray([...skillsArray, skillFormObject]);
+    console.log(skillsArray);
+  };
+
   return (
     <>
       <form

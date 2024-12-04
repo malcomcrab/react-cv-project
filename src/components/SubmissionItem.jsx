@@ -1,6 +1,5 @@
-import Button from "./Button";
-import edit from "../assets/edit.svg";
-import trash from "../assets/trash.svg";
+import Button from "./elements/Button";
+
 
 function SubmissionItem({ data, handleDeleteData, handleEditData, title }) {
   return (
