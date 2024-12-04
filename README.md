@@ -1,3 +1,12 @@
+
+
+npm install 
+-installs correct packages
+
+npm run dev 
+-runs the dev version locally on http://localhost:5173/
+
+
 Assignment Brief
 
 1. Create a new React project.
