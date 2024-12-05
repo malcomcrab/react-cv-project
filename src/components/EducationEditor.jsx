@@ -12,9 +12,7 @@ import { useEffect } from "react";
 
 function EducationEditor({ data }) {
   
-  useEffect(() => {
-    console.log(data);
-  })
+  
  
   if (data.length > 0) {
     

@@ -173,6 +173,7 @@ function App() {
             educationData={educationData}
           />
 
+          
           <EducationEditor data={editData} />
 
           <SkillsForm
