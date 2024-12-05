@@ -12,13 +12,15 @@ function EducationForm({ educationData, setEducationData }) {
   //Turns form inputs into an object and saves to state
   const formSubmit = (event) => {
     event.preventDefault();
+    
     const data = new FormData(event.target);
     event.target.reset();
+    console.log(educationData)
     let formObject = Object.fromEntries(data.entries());
     formObject.id = crypto.randomUUID();
     setEducationData([...educationData, formObject]);
-    //console.log(formObject)
-    //console.log(educationData[0])
+    console.log(formObject)
+    
   };
 
   return (

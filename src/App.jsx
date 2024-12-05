@@ -14,12 +14,33 @@ import WorkExperienceList from "./components/WorkExperienceList";
 import SkillsEditList from "./components/SkillsEditList";
 import { handleListToggle, hideAllLists } from "./modules/ListFunctions";
 import { hideForms, handleToggle } from "./modules/FormFunctions";
+import { educationArray } from "./components/educationArray";
+
+
 
 function App() {
   const [firstName, setFirstName] = useState("John");
   const [surname, setSurname] = useState("Bon");
   const [jobRole, setJobRole] = useState("Developer");
-  const [educationData, setEducationData] = useState([]);
+  const [educationData, setEducationData] = useState([{
+    id: crypto.randomUUID(),
+    schoolName: 'Harvard',
+    educationType: 'GCSE',
+    educationStart: '2024-08-08',
+    educationEnd: '2024-08-08',
+    grade: 'Shutup',
+    educationNotes: 'none',
+},
+{
+  id: crypto.randomUUID(),
+  schoolName: 'baaaaarvard',
+  educationType: 'bbbbbbbGCSE',
+  educationStart: '2024-03-03',
+  educationEnd: '2024-03-03',
+  grade: 'aaaaaaaaaaShutup',
+  educationNotes: 'aaaaaaaaaaaaaaanone',
+}
+]);
   const [editData, setEditData] = useState(null);
   const [skillsArray, setSkillsArray] = useState([
     { id: crypto.randomUUID(), skillTitle: "Karate Black Belt" },
@@ -58,6 +79,8 @@ function App() {
    const editForm = educationData.find((data) => data.id == event.target.value);
    setEditData(editForm);
   };
+
+  
 
   return (
     <>
@@ -172,7 +195,7 @@ function App() {
             educationData={educationData}
           />
 
-          { editData && <EducationEditor data={editData} /> }
+          { editData && <EducationEditor data={editData} educationData={educationData} setEducationData={setEducationData}  /> }
 
           <SkillsForm
             setSkillsArray={setSkillsArray}

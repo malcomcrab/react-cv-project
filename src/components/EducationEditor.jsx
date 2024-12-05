@@ -1,6 +1,5 @@
 import Button from "./elements/Button";
 import Input from "./elements/Input";
-import { useEffect } from "react";
 
 {/* When an edit button is clicked on one of the data lists its stored to state and passed to this
   component and rendered in a form to be edited by the user.
@@ -10,12 +9,29 @@ import { useEffect } from "react";
   updates correctly and using console.log you can see that the object is being passed to the component
   succesfully.*/}
 
-function EducationEditor({ data }) {
+function EducationEditor({ data, educationData, setEducationData}) {
+
+  const handleSubmitChanges = (event) => {
+    event.preventDefault();
+    removeItem(updatedFormObject(event))
+    event.target.reset();
+  }
+
+  function updatedFormObject(event){
+    const updatedForm = new FormData(event.target);
+    let formObject = Object.fromEntries(updatedForm.entries());
+    formObject.id = crypto.randomUUID();
+    return formObject
+  }
   
+  function removeItem(updatedForm){
+    let t = educationData.filter((item) => item.id != data.id)
+     setEducationData([...t, updatedForm])
+  }
   
- 
+
   return (
-    <form key={data.id}>
+    <form key={data.id} value={data.id} onSubmit={handleSubmitChanges}>
       <Input
         id={"education-name-input"}
         name={"schoolName"}
@@ -59,7 +75,7 @@ function EducationEditor({ data }) {
         name={"educationNotes"}
         text={data.educationNotes}
       />
-      <Button text={"save"} />
+      <Button text={"save"} value={data.id} />
     </form>
   );
 }
