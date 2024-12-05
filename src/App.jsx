@@ -169,7 +169,7 @@ function App() {
                   />
                 </div>
               </div>
-              { skillsArray && <SkillsEditList skillData={skillsArray} handleDeleteData={handleSkillDelete}/>}
+              { skillsArray && <SkillsEditList key={'skillsList'} skillData={skillsArray} handleDeleteData={handleSkillDelete}/>}
 
             </div>
 
