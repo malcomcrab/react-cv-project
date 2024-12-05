@@ -20,7 +20,7 @@ function App() {
   const [surname, setSurname] = useState("Bon");
   const [jobRole, setJobRole] = useState("Developer");
   const [educationData, setEducationData] = useState([]);
-  const [editData, setEditData] = useState([]);
+  const [editData, setEditData] = useState(null);
   const [skillsArray, setSkillsArray] = useState([
     { id: crypto.randomUUID(), skillTitle: "Karate Black Belt" },
   ]);
@@ -55,9 +55,8 @@ function App() {
     displayed in the form inputs */}
 
   const handleEditData = (event) => {
-   let editForm = educationData.filter((data) => data.id == event.target.value)
-   setEditData(editForm )
-  
+   const editForm = educationData.find((data) => data.id == event.target.value);
+   setEditData(editForm);
   };
 
   return (
@@ -173,8 +172,7 @@ function App() {
             educationData={educationData}
           />
 
-          
-          <EducationEditor data={editData} />
+          { editData && <EducationEditor data={editData} /> }
 
           <SkillsForm
             setSkillsArray={setSkillsArray}

@@ -14,57 +14,54 @@ function EducationEditor({ data }) {
   
   
  
-  if (data.length > 0) {
-    
-    return (
-      <form key={data}>
-        <Input
-          id={"education-name-input"}
-          name={"schoolName"}
-          text={data[0].schoolName}
-          required={"required"}
-        />
+  return (
+    <form key={data.id}>
+      <Input
+        id={"education-name-input"}
+        name={"schoolName"}
+        text={data.schoolName}
+        required={"required"}
+      />
 
-        <Input
-          id={"education-type-input"}
-          name={"educationType"}
-          text={data[0].educationType}
-          required={"required"}
-        />
+      <Input
+        id={"education-type-input"}
+        name={"educationType"}
+        text={data.educationType}
+        required={"required"}
+      />
 
-        <Input
-          id={"education-start-input"}
-          name={"educationStart"}
-          text={data[0].educationStart}
+      <Input
+        id={"education-start-input"}
+        name={"educationStart"}
+        text={data.educationStart}
 
-          type={'date'}
-          required={"required"}
-        />
+        type={'date'}
+        required={"required"}
+      />
 
-        <Input
-          id={"education-end-input"}
-          name={"educationEnd"}
-          text={data[0].educationEnd}
-          type={'date'}
-          required={"required"}
-        />
+      <Input
+        id={"education-end-input"}
+        name={"educationEnd"}
+        text={data.educationEnd}
+        type={'date'}
+        required={"required"}
+      />
 
-        <Input
-          id={"education-grade-input"}
-          name={"grade"}
-          text={data[0].grade}
-          required={"required"}
-        />
+      <Input
+        id={"education-grade-input"}
+        name={"grade"}
+        text={data.grade}
+        required={"required"}
+      />
 
-        <Input
-          id={"education-notes-input"}
-          name={"educationNotes"}
-          text={data[0].educationNotes}
-        />
-        <Button text={"save"} />
-      </form>
-    );
-  }
+      <Input
+        id={"education-notes-input"}
+        name={"educationNotes"}
+        text={data.educationNotes}
+      />
+      <Button text={"save"} />
+    </form>
+  );
 }
 
 export default EducationEditor;
