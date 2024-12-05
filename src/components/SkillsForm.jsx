@@ -11,8 +11,14 @@ function SkillsForm({ skillsArray, setSkillsArray }) {
     const skillData = new FormData(event.target);
     let skillFormObject = Object.fromEntries(skillData.entries());
     skillFormObject.id = crypto.randomUUID();
-    setSkillsArray([...skillsArray, skillFormObject]);
-    console.log(skillsArray);
+    console.log(skillFormObject)
+    if(skillsArray === undefined){
+      setSkillsArray([skillFormObject])
+    } else {
+      setSkillsArray([...skillsArray, skillFormObject]);
+      console.log(skillsArray);
+    }
+    
   };
 
   return (

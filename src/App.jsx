@@ -15,6 +15,7 @@ import SkillsEditList from "./components/SkillsEditList";
 import { handleListToggle, hideAllLists } from "./modules/ListFunctions";
 import { hideForms, handleToggle } from "./modules/FormFunctions";
 import { educationArray } from "./components/educationArray";
+import SkillEditor from "./components/SkillEditor";
 
 
 
@@ -42,9 +43,7 @@ function App() {
 }
 ]);
   const [editData, setEditData] = useState(null);
-  const [skillsArray, setSkillsArray] = useState([
-    { id: crypto.randomUUID(), skillTitle: "Karate Black Belt" },
-  ]);
+  const [skillsArray, setSkillsArray] = useState([{id: crypto.randomUUID(), skillTitle:'toe'}]);
   const [experienceArray, setExperienceArray] = useState([]);
 
   {/*When the user types in any of the general info inputs it is updated to its respective state
@@ -64,12 +63,21 @@ function App() {
   {/*The value of the delete button in the list item is the ID of the formData object it represents
   using this it is filtered out of the array and the new array is overwritten in state*/} 
 
-  const handleDeleteData = (event) => {
+  const handleEducationData = (event) => {
     console.log(event.target.value);
     setEducationData((previousEducationData) =>
       previousEducationData.filter((data) => data.id != event.target.value),
     );
   };
+
+  const handleSkillDelete = (event) => {
+    console.log(event.target.value)
+    setSkillsArray((previousSkillsArray) =>{
+      previousSkillsArray.filter((item) => item.id == event.target.value)
+    })
+    console.log(skillsArray)
+  }
+ 
 
   {/* The value of the edit button is the ID of the form data object in state. Using the ID the object is
     copied and stored to a new state 'editData' this is passed to the educationEdior component and 
@@ -138,7 +146,7 @@ function App() {
                 className={"control-list-button"}
                 educationData={educationData}
                 handleEditData={handleEditData}
-                handleDeleteData={handleDeleteData}
+                handleDeleteData={handleEducationData}
               />
             </div>
 
@@ -161,7 +169,8 @@ function App() {
                   />
                 </div>
               </div>
-              <SkillsEditList data={skillsArray} />
+              { skillsArray && <SkillsEditList skillData={skillsArray} handleDeleteData={handleSkillDelete}/>}
+
             </div>
 
             <div className="form-controls-container">
@@ -197,6 +206,7 @@ function App() {
 
           { editData && <EducationEditor data={editData} educationData={educationData} setEducationData={setEducationData}  /> }
 
+          
           <SkillsForm
             setSkillsArray={setSkillsArray}
             skillsArray={skillsArray}

@@ -6,7 +6,7 @@ import { hideForms } from "./FormFunctions";
 const handleListToggle = (event) => {
   let toggle = document.getElementById(event.target.value);
 
-  if (toggle.className === "hidden-list") {
+  if (toggle.className == "hidden-list") {
     hideAllLists();
     hideForms();
     toggle.className = "unhidden-list";

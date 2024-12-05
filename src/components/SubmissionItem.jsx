@@ -4,8 +4,9 @@ import Button from "./elements/Button";
   list*/}
 
 function SubmissionItem({ data, handleDeleteData, handleEditData, title }) {
+ console.log(data.id)
   return (
-    <div className="list-item">
+    <div key={data.id} className="list-item">
       <p>{title + ": "}</p>
       <div>
         <Button

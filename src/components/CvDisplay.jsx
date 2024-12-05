@@ -42,10 +42,10 @@ function CvDisplay({
         <ul>
           {/* Skills formData (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
-          {skillsArray.map((item) => {
+          {skillsArray && skillsArray.map((item) => {
             return (
               <SkillsDisplayTemplate
-                key={item.skillTitle}
+                key={item.id}
                 data={item.skillTitle}
               />
             );
