@@ -14,8 +14,8 @@ import WorkExperienceList from "./components/WorkExperienceList";
 import SkillsEditList from "./components/SkillsEditList";
 import { handleListToggle, hideAllLists } from "./modules/ListFunctions";
 import { hideForms, handleToggle } from "./modules/FormFunctions";
-import { educationArray } from "./components/educationArray";
 import SkillEditor from "./components/SkillEditor";
+
 
 
 
@@ -42,9 +42,28 @@ function App() {
   educationNotes: 'aaaaaaaaaaaaaaanone',
 }
 ]);
-  const [editData, setEditData] = useState(null);
-  const [skillsArray, setSkillsArray] = useState([{id: crypto.randomUUID(), skillTitle:'toe'}]);
-  const [experienceArray, setExperienceArray] = useState([]);
+  const [educationEditData, setEducationEditData] = useState(null);
+  const [experienceEditData, setExperienceEditData] = useState(null);
+  const [skillEditData, setSkillEditData] = useState(null);
+  const [skillsArray, setSkillsArray] = useState([{skillTitle:'toe', id: crypto.randomUUID()}]);
+  const [experienceArray, setExperienceArray] = useState([{
+    id: crypto.randomUUID(),
+    experienceName: 'Job',
+    experienceRole: 'King',
+    experienceStart: '2024-08-08',
+    experienceEnd: '2024-08-08',
+    responsibilities: 'shhh',
+    experienceNotes: 'hello',
+},
+{
+  id: crypto.randomUUID(),
+  experienceName: 'Chicken',
+  experienceRole: 'Bird',
+  experienceStart: '2024-03-03',
+  experienceEnd: '2024-03-03',
+  responsibilities: 'aaaaaaaaaaShutup',
+  experienceNotes: 'aaaaaaaaaaaaaaanone',
+}]);
 
   {/*When the user types in any of the general info inputs it is updated to its respective state
   the CV display for the input rerenders and updates after each keystroke.*/}
@@ -64,30 +83,42 @@ function App() {
   using this it is filtered out of the array and the new array is overwritten in state*/} 
 
   const handleEducationData = (event) => {
-    console.log(event.target.value);
-    setEducationData((previousEducationData) =>
-      previousEducationData.filter((data) => data.id != event.target.value),
-    );
-  };
-
-  const handleSkillDelete = (event) => {
-    console.log(event.target.value)
-    setSkillsArray((previousSkillsArray) =>{
-      previousSkillsArray.filter((item) => item.id == event.target.value)
+    setEducationData(previousEducationData => {
+     return previousEducationData.filter(data => data.id !== event.target.value)
     })
-    console.log(skillsArray)
+  }
+
+  
+  const handleSkillDelete = (event) => {
+    setSkillsArray(previousSkillsArray => {
+      return previousSkillsArray.filter(data => data.id !== event.target.value)
+    })
+    
   }
  
-
+  const handleExperienceDelete = (event) => {
+      setExperienceArray(previousExperienceArray => {
+      return previousExperienceArray.filter(item => item.id !== event.target.value)
+   })
+   
+  }
+ 
   {/* The value of the edit button is the ID of the form data object in state. Using the ID the object is
     copied and stored to a new state 'editData' this is passed to the educationEdior component and 
     displayed in the form inputs */}
 
   const handleEditData = (event) => {
-   const editForm = educationData.find((data) => data.id == event.target.value);
-   setEditData(editForm);
+   const editForm = educationData.find((data) => data.id === event.target.value);
+   setEducationEditData(editForm);
+   
   };
 
+  const handleEditSkill = (event) => {
+    console.log(event.target.value)
+    const skillObject = skillsArray.find((skillsEntry) => skillsEntry.id === event.target.value);
+    setSkillEditData(skillObject);
+    
+   };
   
 
   return (
@@ -169,7 +200,9 @@ function App() {
                   />
                 </div>
               </div>
-              { skillsArray && <SkillsEditList key={'skillsList'} skillData={skillsArray} handleDeleteData={handleSkillDelete}/>}
+              { skillsArray && <SkillsEditList 
+              className={"control-list-button"} key={'skillsList'} skillsArray={skillsArray} 
+              handleEditSkill={handleEditSkill} handleDeleteData={handleSkillDelete}/>}
 
             </div>
 
@@ -192,8 +225,8 @@ function App() {
                   />
                 </div>
               </div>
-              <WorkExperienceList experienceArray={experienceArray} />
-            </div>
+            {experienceArray && <WorkExperienceList experienceArray={experienceArray} handleDeleteData={handleExperienceDelete}/>
+            }  </div>
           </div>
 
           
@@ -204,13 +237,15 @@ function App() {
             educationData={educationData}
           />
 
-          { editData && <EducationEditor data={editData} educationData={educationData} setEducationData={setEducationData}  /> }
+          { educationEditData && <EducationEditor data={educationEditData} educationData={educationData} setEducationData={setEducationData}  /> }
 
           
           <SkillsForm
             setSkillsArray={setSkillsArray}
             skillsArray={skillsArray}
           />
+
+          {skillEditData && <SkillEditor skillEditData={skillEditData} setSkillsArray={setSkillsArray} skillsArray={skillsArray}/>}
 
           <WorkExperienceForm
             setExperienceArray={setExperienceArray}

@@ -13,7 +13,7 @@ function EducationEditor({ data, educationData, setEducationData}) {
 
   const handleSubmitChanges = (event) => {
     event.preventDefault();
-    removeItem(updatedFormObject(event))
+    replaceItem(updatedFormObject(event))
     event.target.reset();
   }
 
@@ -24,9 +24,9 @@ function EducationEditor({ data, educationData, setEducationData}) {
     return formObject
   }
   
-  function removeItem(updatedForm){
-    let t = educationData.filter((item) => item.id != data.id)
-     setEducationData([...t, updatedForm])
+  function replaceItem(newFormData){
+    let filteredArray = educationData.filter((item) => item.id != data.id)
+     setEducationData([...filteredArray, newFormData])
   }
   
 

@@ -62,7 +62,7 @@ function CvDisplay({
 
           {/* work experience from data (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
-        {experienceArray.map((item) => {
+        {experienceArray && experienceArray.map((item) => {
           return (
             <WorkExperienceTemplate key={item.experienceName} data={item} />
           );

@@ -7,7 +7,7 @@ function WorkExperienceList({
   handleEditData,
   handleDeleteData,
 }) {
-  console.log(experienceArray);
+  
   return (
     <div>
       <div id="experience-list-container" className="hidden-list">
