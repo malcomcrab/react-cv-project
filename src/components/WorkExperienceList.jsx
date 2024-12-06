@@ -1,13 +1,14 @@
 import SubmissionItem from "./SubmissionItem";
 
-{/* Creates a list element for the Work experience formData passed to it*/}
+{
+  /* Creates a list element for the Work experience formData passed to it*/
+}
 
 function WorkExperienceList({
   experienceArray,
   handleEditData,
   handleDeleteData,
 }) {
-  
   return (
     <div>
       <div id="experience-list-container" className="hidden-list">

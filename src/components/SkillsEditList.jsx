@@ -1,12 +1,12 @@
 import SubmissionItem from "./SubmissionItem";
 
-{/* Creates a list element for the Skills formData passed to it*/}
+{
+  /* Creates a list element for the Skills formData passed to it*/
+}
 
 function SkillsEditList({ skillsArray, handleDeleteData, handleEditSkill }) {
-
-  
   return (
-    <div  id="skills-list-container" className="hidden-list">
+    <div id="skills-list-container" className="hidden-list">
       {skillsArray.map((item) => {
         return (
           <SubmissionItem

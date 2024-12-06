@@ -257,7 +257,7 @@ function App() {
             experienceArray={experienceArray}
           />
 
-          { experienceEditData && <WorkExperienceEditor experienceEditData={experienceEditData} /> }
+          { experienceEditData && <WorkExperienceEditor experienceEditData={experienceEditData} experienceArray={experienceArray} setExperienceArray={setExperienceArray}/> }
 
         </div>
       </div>

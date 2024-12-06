@@ -1,9 +1,10 @@
 import Input from "./elements/Input";
 import Button from "./elements/Button";
 
-
-{/* On submission the input fields are turned into a formData object. A unique Key is added to the object
-  and it is then stored in state in the App.jsx file.*/}
+{
+  /* On submission the input fields are turned into a formData object. A unique Key is added to the object
+  and it is then stored in state in the App.jsx file.*/
+}
 
 function WorkExperienceForm({ experienceArray, setExperienceArray }) {
   const experienceFormSubmit = (event) => {
@@ -14,9 +15,11 @@ function WorkExperienceForm({ experienceArray, setExperienceArray }) {
     experienceFormObject.id = crypto.randomUUID();
     setExperienceArray([...experienceArray, experienceFormObject]);
   };
-  {/*
+  {
+    /*
     
-    */}
+    */
+  }
 
   return (
     <>
@@ -27,7 +30,7 @@ function WorkExperienceForm({ experienceArray, setExperienceArray }) {
       >
         <fieldset>
           <label htmlFor="experienceName">Name: </label>
-          <Input id="experienceName" name="experienceName" type="text"  />
+          <Input id="experienceName" name="experienceName" type="text" />
           <label htmlFor="experienceRole">Role: </label>
           <Input id="experienceRole" name="experienceRole" />
         </fieldset>

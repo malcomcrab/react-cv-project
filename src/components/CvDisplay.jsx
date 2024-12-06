@@ -3,8 +3,10 @@ import prof from "../assets/prof.jpg";
 import SkillsDisplayTemplate from "./SkillsDisplayTemplate";
 import WorkExperienceTemplate from "./WorkExperienceTemplate";
 
-  {/* this component creates and displays the CV for display in the browser. 
-    as new data is added or deleted it updates the CV live */}
+{
+  /* this component creates and displays the CV for display in the browser. 
+    as new data is added or deleted it updates the CV live */
+}
 
 function CvDisplay({
   firstName,
@@ -42,14 +44,12 @@ function CvDisplay({
         <ul>
           {/* Skills formData (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
-          {skillsArray && skillsArray.map((item) => {
-            return (
-              <SkillsDisplayTemplate
-                key={item.id}
-                data={item.skillTitle}
-              />
-            );
-          })}
+          {skillsArray &&
+            skillsArray.map((item) => {
+              return (
+                <SkillsDisplayTemplate key={item.id} data={item.skillTitle} />
+              );
+            })}
         </ul>
       </div>
 
@@ -60,13 +60,14 @@ function CvDisplay({
       <div id="experience-container">
         <h3>Work Experience: </h3>
 
-          {/* work experience from data (array of objects) is mapped and each object is passed through 
+        {/* work experience from data (array of objects) is mapped and each object is passed through 
         the DisplayForm component and rendered.*/}
-        {experienceArray && experienceArray.map((item) => {
-          return (
-            <WorkExperienceTemplate key={item.experienceName} data={item} />
-          );
-        })}
+        {experienceArray &&
+          experienceArray.map((item) => {
+            return (
+              <WorkExperienceTemplate key={item.experienceName} data={item} />
+            );
+          })}
       </div>
 
       <div id="education-container">

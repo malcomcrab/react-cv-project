@@ -1,10 +1,11 @@
 import Button from "./elements/Button";
 
-{/* each formData object is passed through this templated and displayed in the correct drop down 
-  list*/}
+{
+  /* each formData object is passed through this templated and displayed in the correct drop down 
+  list*/
+}
 
 function SubmissionItem({ data, handleDeleteData, handleEditData, title }) {
- 
   return (
     <div key={data.id} className="list-item">
       <p>{title + ": "}</p>
