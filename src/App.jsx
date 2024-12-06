@@ -15,6 +15,7 @@ import SkillsEditList from "./components/SkillsEditList";
 import { handleListToggle, hideAllLists } from "./modules/ListFunctions";
 import { hideForms, handleToggle } from "./modules/FormFunctions";
 import SkillEditor from "./components/SkillEditor";
+import WorkExperienceEditor from "./components/WorkExperienceEditor";
 
 
 
@@ -100,9 +101,8 @@ function App() {
       setExperienceArray(previousExperienceArray => {
       return previousExperienceArray.filter(item => item.id !== event.target.value)
    })
-   
   }
- 
+
   {/* The value of the edit button is the ID of the form data object in state. Using the ID the object is
     copied and stored to a new state 'editData' this is passed to the educationEdior component and 
     displayed in the form inputs */}
@@ -117,7 +117,12 @@ function App() {
     console.log(event.target.value)
     const skillObject = skillsArray.find((skillsEntry) => skillsEntry.id === event.target.value);
     setSkillEditData(skillObject);
-    
+   };
+  
+   const handleEditExperience = (event) => {
+    console.log(event.target.value)
+    const experienceObject = experienceArray.find((experienceEntry) => experienceEntry.id === event.target.value);
+    setExperienceEditData(experienceObject);
    };
   
 
@@ -225,7 +230,7 @@ function App() {
                   />
                 </div>
               </div>
-            {experienceArray && <WorkExperienceList experienceArray={experienceArray} handleDeleteData={handleExperienceDelete}/>
+            {experienceArray && <WorkExperienceList experienceArray={experienceArray} handleEditData={handleEditExperience} handleDeleteData={handleExperienceDelete}/>
             }  </div>
           </div>
 
@@ -251,6 +256,9 @@ function App() {
             setExperienceArray={setExperienceArray}
             experienceArray={experienceArray}
           />
+
+          { experienceEditData && <WorkExperienceEditor experienceEditData={experienceEditData} /> }
+
         </div>
       </div>
 
